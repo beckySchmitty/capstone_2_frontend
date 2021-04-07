@@ -1,0 +1,4 @@
+allrecipies
+nytcooking
+cookieandkate
+delish (grabs author not title, maybe have title be input?)
