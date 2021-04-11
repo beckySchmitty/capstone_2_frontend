@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
+import NavBar from "./Routes/MyNavBar"
 import Routes from "./Routes/Routes";
 import backendAPI from "./API/backendAPI"
 import useLocalStorage from "./Helpers/useLocalStorage";
@@ -49,7 +52,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={currentUser, setCurrentUser}>      
-          <div>
+        <div>
+          <NavBar />
           <Routes login={login} signup={signup} />
         </div>
         </UserContext.Provider>
