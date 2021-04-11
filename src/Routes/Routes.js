@@ -2,11 +2,9 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "../Home/Home";
-
-
-import LoginForm from "../auth/LoginForm";
-import SignupForm from "../auth/SignupForm";
-import ProfileForm from "../auth/ProfileForm";
+import Search from "../MovieSearch/Search"
+import LoginForm from "../User/LoginForm";
+import SignupForm from "../User/SignupForm";
 
 
 
@@ -22,6 +20,10 @@ const Routes = ({login, signup}) => {
             <Home />
           </Route>
 
+          <Route exact path="/search">
+            <Search />
+          </Route>
+
           <Route exact path="/login">
             <LoginForm login={login} />
           </Route>
@@ -30,21 +32,9 @@ const Routes = ({login, signup}) => {
             <SignupForm signup={signup} />
           </Route>
 
-          <LoginRequiredRoute exact path="/companies">
-            <CompanyList />
-          </LoginRequiredRoute>
-
-          <LoginRequiredRoute exact path="/jobs">
-            <JobList />
-          </LoginRequiredRoute>
-
-          <LoginRequiredRoute exact path="/companies/:handle">
-            <CompanyDetail />
-          </LoginRequiredRoute>
-
-          <LoginRequiredRoute path="/profile">
-            <ProfileForm />
-          </LoginRequiredRoute>
+          {/* <Route exact path="/profile">
+            <Profile />
+          </Route> */}
 
           <Redirect to="/" />
         </Switch>

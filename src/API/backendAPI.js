@@ -12,7 +12,7 @@ class backendAPI {
 
     // auth token passed in through header
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${JoblyApi.token}` };
+    const headers = { Authorization: `Bearer ${backendAPI.token}` };
     const params = (method === "get")
         ? data
         : {};

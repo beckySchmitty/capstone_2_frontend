@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from "react";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./Routes/Routes";
+import backendAPI from "./API/backendAPI"
+import useLocalStorage from "./Helpers/useLocalStorage";
+
 
 import './App.css';
 
-import UserContext from "./auth/UserContext";
+import UserContext from "./User/UserContext";
 
 
 function App() {
+  const [token, setToken] = useLocalStorage("token");
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // ADD FUNC TO LOAD USER
+
+
 
     // Handles site-wide signup
     // logs in user and sets token
     async function signup(signupData) {
       try {
-        let token = await JoblyApi.signup(signupData);
+        let token = await backendAPI.signup(signupData);
         setToken(token);
         return { success: true };
       } catch (errors) {
@@ -28,7 +37,7 @@ function App() {
     // logs user in, saves token
     async function login(loginData) {
       try {
-        let token = await JoblyApi.login(loginData);
+        let token = await backendAPI.login(loginData);
         setToken(token);
         return { success: true };
       } catch (errors) {
@@ -46,7 +55,6 @@ function App() {
         </UserContext.Provider>
       </BrowserRouter>
     </div>
-  );
   );
 
 }
