@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserContext from "./User/UserContext";
+
 
 // import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
@@ -10,9 +12,11 @@ import useLocalStorage from "./Helpers/useLocalStorage";
 
 
 import './App.css';
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faVenus } from '@fortawesome/free-solid-svg-icons'
 
-import UserContext from "./User/UserContext";
-
+library.add(faVenus)
 
 function App() {
   const [token, setToken] = useLocalStorage("token");
