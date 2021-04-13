@@ -33,8 +33,8 @@ class backendAPI {
 
   // Get Movies - all from 2020
   static async getAll2020Movies() {
-    let res = await this.request("movies/year/2020");
-    return res.data;
+    let res = await this.request("bechdel/all");
+    return res;
    }
 
   // User login - get token from username, password
