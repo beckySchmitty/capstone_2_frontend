@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "../Home/Home";
-import Search from "../MovieSearch/Search"
+import Search from "../Search/Search"
 import LoginForm from "../User/LoginForm";
 import SignupForm from "../User/SignupForm";
 

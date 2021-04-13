@@ -1,3 +1,5 @@
+// Calls to backend API with imported .csv bechdel data in db
+
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
