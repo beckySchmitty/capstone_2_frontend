@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-// import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "../Styles/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -14,6 +14,12 @@ import { Button } from 'reactstrap';
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);
+  const history = useHistory();
+
+
+  const toSearchPage = () => {
+    history.push("/search");
+  }
 
   return (
       <div className="Homepage">
@@ -31,7 +37,7 @@ function Homepage() {
             </div>
           </div>
           <p>Learn more: http://bechdeltest.com/</p>
-          <Button outline color="primary">SEARCH</Button>{' '}
+          <Button outline color="primary" onClick={toSearchPage}>SEARCH</Button>{' '}
       </div>
   );
 }

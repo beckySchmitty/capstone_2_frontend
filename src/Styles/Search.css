@@ -13,12 +13,17 @@
     flex-wrap: wrap;
   }
   
-  .Search-child {
+  .Search-MovieCard {
     height: 50px;
     background: red;
     flex: 1;
     min-width: 25%;
-    border: 5px solid white;
+    border: 5px solid #94545c;
+    height: 200px;
+    width: 200px;
+    background-color: #84859b;
+    color: white;
+    padding-top: 50px;
   }
   
   @media (max-width: 700px) {
