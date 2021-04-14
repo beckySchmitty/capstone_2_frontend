@@ -4,7 +4,7 @@ import OmdbApi from "../API/OmdbApi"
 import MovieCard from "./MovieCard"
 import "../Styles/Search.css"
 
-const Search = () => {
+const SearchOld = () => {
   const [data, setData] = useState(null)
   const [posterTest, setPosterTest] = useState(null)
   const [btnClicked, setBtnClicked] = useState(null)
@@ -52,4 +52,4 @@ getPoster();
   );
 }
 
-export default Search;
+export default SearchOld;

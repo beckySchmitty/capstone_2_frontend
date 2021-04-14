@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "../Home/Home";
-import Search from "../Search/Search"
+import SearchPage from "../Search/SearchPage"
 import LoginForm from "../User/LoginForm";
 import SignupForm from "../User/SignupForm";
 
@@ -21,7 +21,7 @@ const Routes = ({login, signup}) => {
           </Route>
 
           <Route exact path="/search">
-            <Search />
+            <SearchPage />
           </Route>
 
           <Route exact path="/login">
