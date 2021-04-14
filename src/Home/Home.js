@@ -27,17 +27,17 @@ function Homepage() {
           <h3>Movies rated on a 1-3 scale to rate how women are featured.</h3>
           <div>
             <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" />   It has at least two women in it
+            <FontAwesomeIcon icon="venus" /> It has at least two women in it
             </div>
             <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" />   Who talk to eachother
+            <FontAwesomeIcon icon="venus" /> Who talk to eachother
             </div>
             <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" />   About something besies a man
+            <FontAwesomeIcon icon="venus" /> About something besies a man
             </div>
           </div>
           <p>Learn more: http://bechdeltest.com/</p>
-          <Button outline color="primary" onClick={toSearchPage}>SEARCH</Button>{' '}
+          <Button outline color="danger" onClick={toSearchPage}>SEARCH</Button>{' '}
       </div>
   );
 }

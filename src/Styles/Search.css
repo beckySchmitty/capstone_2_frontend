@@ -18,12 +18,19 @@
     background: red;
     flex: 1;
     min-width: 25%;
-    border: 5px solid #94545c;
+    /* border: 1px solid white; */
     height: 200px;
     width: 200px;
-    background-color: #84859b;
+    background-color: #4d4e6d;
     color: white;
-    padding-top: 50px;
+    padding-top: 20px;
+    border-radius: 15px;
+    margin-left: 50px;
+  }
+
+  h4 {
+    color: white;
+
   }
   
   @media (max-width: 700px) {
@@ -37,3 +44,4 @@
       min-width: 50%; 
     }
   }
+
