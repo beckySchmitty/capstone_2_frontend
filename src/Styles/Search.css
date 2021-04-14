@@ -19,13 +19,14 @@
     flex: 1;
     min-width: 25%;
     /* border: 1px solid white; */
-    height: 200px;
+    height: auto;
     width: 200px;
     background-color: #4d4e6d;
     color: white;
     padding-top: 20px;
     border-radius: 15px;
     margin-left: 50px;
+    padding-bottom: 20px;
   }
 
   h4 {

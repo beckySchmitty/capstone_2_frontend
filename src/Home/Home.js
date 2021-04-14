@@ -24,21 +24,21 @@ function Homepage() {
   return (
       <div className="Homepage">
           <h1>What is the Bechdel test?</h1>
+            <div className="Homepage-faIcon">
+            <FontAwesomeIcon icon="venus" /> 
+            </div>
           <h3>Movies rated on a 1-3 scale to rate how women are featured.</h3>
-          <div>
-            <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" /> It has at least two women in it
+          <div className="Homepage-ratingList">
+            <div> 1. It has at least two women in it
             </div>
-            <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" /> Who talk to eachother
+            <div> 2. Who talk to eachother
             </div>
-            <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" /> About something besies a man
+            <div> 3. About something besies a man
             </div>
           </div>
-          <p>Learn more: http://bechdeltest.com/</p>
           <Button outline color="danger" onClick={toSearchPage}>SEARCH</Button>{' '}
       </div>
+      
   );
 }
 

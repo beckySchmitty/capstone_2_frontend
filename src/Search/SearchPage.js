@@ -11,7 +11,8 @@ const SearchPage = () => {
     const [term, setTerm] = useState(null);
     const [poster, setPoster] = useState(null)
     const [hasError, setHasError] = useState(false);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [doneLoading, setDoneLoading] = useState(false)
   
     const search = term => {
     console.log("SETTING TERM")
@@ -33,6 +34,7 @@ const SearchPage = () => {
             const resp = await backendAPI.getMovieByTitle(term);
               checkForError(resp)
               setMovie(resp.data);
+              console.log(`**$$$$$$$$$$$$$$$$: ${JSON.stringify(movie)}`)
           } catch(error) {
             setHasError(true)
           }
@@ -41,14 +43,20 @@ const SearchPage = () => {
       loadMovie();
     }, [term])
 
-    // useEffect(() => {
-    //     async function getPoster() {
-    //     console.log(`***********************MOVIEID${movie.imdb_id}`)
-    //       const resp = await OmdbApi.getTestPoster(movie.imdb_id);
-    //       setPoster(resp)
-    //     }
-    // getPoster();
-    // }, [term])
+    useEffect(() => {
+        async function getPoster() {
+          if (movie) {
+            console.log(`***********************MOVIE_ID: ${movie[0].imdb_id}`)
+            const resp = await OmdbApi.getTestPoster(movie[0].imdb_id);
+            console.log(`***********************RESP in useEffect: ${JSON.stringify(resp)}`)
+            setPoster(resp)
+            setDoneLoading(true)
+            console.log(`***********************Poster: ${poster}`)
+
+          }
+        }
+    getPoster();
+    }, [movie])
 
   
     return (
@@ -56,9 +64,21 @@ const SearchPage = () => {
         <h1>Search for a movie:</h1>
         <SearchForm search={search} />
         {hasError && <ErrorComponent error={error}></ErrorComponent>}
+
         <div>
-        {movie ? <MovieCard key={movie[0].id} id={movie[0].id} yr={movie[0].yr} imdb_id={movie[0].imdb_id} title={movie[0].title} rating={movie[0].rating}  />
+        {doneLoading ? <MovieCard 
+        key={movie[0].id} 
+        id={movie[0].id} 
+        yr={movie[0].yr} 
+        imdb_id={movie[0].imdb_id} 
+        title={movie[0].title} 
+        rating={movie[0].rating}
+        src={poster}  />
         : <h4>No movie searched</h4>}
+        </div>
+
+        <div>
+          <hr></hr>
         </div>
       </div>
     );
@@ -69,37 +89,17 @@ export default SearchPage;
 // key={movie[0].id} id={movie[0].id} yr={movie[0].yr} imdb_id={movie[0].imdb_id} title={movie[0].title} rating={movie[0].rating}
 
 
-
 // useEffect(() => {
-//   console.log("RUNNING EFFECT")
-//     async function loadMovie() {
-//       if (term) {
-//           const resp = await backendAPI.getMovieByTitle(term);
-//           console.log(`RESPONSE DATA ${JSON.stringify(resp.data)}`)
-//             setMovie(resp.data);
+//   async function loadMovie() {
+//     if (term) {
+//       try {
+//         const resp = await backendAPI.getMovieByTitle(term);
+//           checkForError(resp)
+//           setMovie(resp.data);
+//       } catch(error) {
+//         setHasError(true)
 //       }
 //     }
-//     loadMovie();
-//   }, [term])
-
-
-// useEffect(() => {
-//   console.log("RUNNING EFFECT")
-//     async function loadMovie() {
-//       if (term) {
-//         try {
-//           const resp = await backendAPI.getMovieByTitle(term);
-//           console.log(`RESPONSE DATA ${JSON.stringify(resp.data)}`)
-//           if(resp.data[0].ERROR) {
-//             setError(resp.data[0].ERROR)
-//             throw new Error(resp.data[0].ERROR)
-//           }
-//             setMovie(resp.data);
-//         } catch(e) {
-//           setHasError(true)
-//         }
-
-//       }
-//     }
-//     loadMovie();
-//   }, [term])
+//   }
+//   loadMovie();
+// }, [term])

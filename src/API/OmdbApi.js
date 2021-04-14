@@ -10,9 +10,10 @@ const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`
 class OmdbApi {
 
     static async getTestPoster(imdb_id) {
+        console.log("ID", imdb_id)
         let resp = await axios.get(`${BASE_URL}&i=tt${imdb_id}`)
-        console.log(`OMDB API RESPonse*******************${JSON.stringify(resp.data.Poster)}`)
-        return resp.data.poster;
+        console.log(`OMDB API Response*******************${JSON.stringify(resp.data.Poster)}`)
+        return resp.data.Poster;
     }
 }
 

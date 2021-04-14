@@ -2,13 +2,13 @@ body {
 background-color: #1c1e46;
 }
 
-h1, h3,ul,ol, p {
+h1, h3,ul,ol, p, div {
 color: white;
 }
 
-.Homepage-faIcon {
-display: flex;
-align-items: flex-start;
+.Homepage-faIcon, .Homepage-ratingList {
+display: 0 auto;
+align-self: center;
 color: white;
 margin: 5px;
 padding: 5px;
