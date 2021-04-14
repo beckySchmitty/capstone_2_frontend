@@ -5,8 +5,7 @@ import Home from "../Home/Home";
 import SearchPage from "../Search/SearchPage"
 import LoginForm from "../User/LoginForm";
 import SignupForm from "../User/SignupForm";
-
-
+import MovieDetails from "../Search/MovieDetails"
 
 
 // Site Wide Frontend Routes
@@ -24,6 +23,10 @@ const Routes = ({login, signup}) => {
             <SearchPage />
           </Route>
 
+          <Route exact path="/movies/:imdb_id">
+            <MovieDetails />
+          </Route>
+
           <Route exact path="/login">
             <LoginForm login={login} />
           </Route>
@@ -31,10 +34,6 @@ const Routes = ({login, signup}) => {
           <Route exact path="/signup">
             <SignupForm signup={signup} />
           </Route>
-
-          {/* <Route exact path="/profile">
-            <Profile />
-          </Route> */}
 
           <Redirect to="/" />
         </Switch>

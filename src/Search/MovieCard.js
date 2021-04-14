@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Button } from 'reactstrap';
 
 
-const MovieCard = ({yr, id, imdb_id, title, rating, src}) => {
+const MovieCard = ({yr, imdb_id, title, rating, src}) => {
     const history = useHistory();
 
 
@@ -21,11 +21,9 @@ const MovieCard = ({yr, id, imdb_id, title, rating, src}) => {
             src={src}>
             </img>
             <p>IMDB_ID: {imdb_id}</p>
-            <Button outline color="info" onClick={()=> toMovieDetails()}>More</Button>{' '}
+            <Button outline color="info" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
         </div>
     )
 }
 
 export default MovieCard;
-
-// src={`https://m.media-amazon.com/images/M/MV5BN2YyZjQ0NTEtNzU5MS00NGZkLTg0MTEtYzJmMWY3MWRhZjM2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg`}>
