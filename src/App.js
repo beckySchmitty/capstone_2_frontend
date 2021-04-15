@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./routes/MyNavBar"
 import Routes from "./Routes/Routes";
 import backendAPI from "./API/backendAPI"
-import useLocalStorage from "./Helpers/useLocalStorage";
+import useLocalStorage from "./helpers/useLocalStorage";
 
 
 import './styles/App.css';

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import AlertMsg from "../Helpers/AlertMsg"
+import AlertMsg from "../helpers/AlertMsg"
 
 // Login Form
 // manages update to state on change
