@@ -5,7 +5,7 @@ export default function rootReducer(state = [], action) {
     switch (action.type) {
   
       case GET_BECH_MOVIE_BY_TITLE:
-        return [ ...state, action.movie ];
+        return [ ...state, ...action.movies ];
   
       case GET_OMDB_MOVIE_DETAILS:
         return [ ...state, action.movie ];

@@ -6,15 +6,15 @@ import backendAPI from "../API/backendAPI"
 export function getMovieFromBechdel(term) {
   return async function (dispatch) {
     const response = await backendAPI.getMovieByTitle(term);
-    console.log(`*********************ACTIONS API RESP: ${JSON.stringify(response.data[0])}`)
-    return dispatch(geMovieBechdel(response.data[0]));
+    console.log(`*********************ACTIONS API RESP: ${JSON.stringify(response.data)}`)
+    return dispatch(geMovieBechdel(response.data));
   };
 }
 
-function geMovieBechdel(movie) {
+function geMovieBechdel(movies) {
   return {
     type: GET_BECH_MOVIE_BY_TITLE,
-    movie,
+    movies,
   };
 }
 

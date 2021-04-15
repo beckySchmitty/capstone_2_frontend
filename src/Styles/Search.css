@@ -10,13 +10,12 @@
   
   .Search-parent {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
   }
   
   .Search-MovieCard {
     height: 50px;
     background: red;
-    flex: 1;
     min-width: 25%;
     /* border: 1px solid white; */
     height: auto;
@@ -27,6 +26,7 @@
     border-radius: 15px;
     margin-left: 50px;
     padding-bottom: 20px;
+    margin: 10px;
   }
 
   h4 {

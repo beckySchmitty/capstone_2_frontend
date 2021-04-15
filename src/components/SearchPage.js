@@ -34,11 +34,13 @@ const SearchPage = () => {
     }, [dispatch, term]);
 
     const movieList = movies.map(m => (
+      <div className="Search-parent">
       <MovieCard 
-        key={m.id} 
+        key={m.imdb_id} 
         yr={m.yr}
         title={m.title}
-      />)
+      />
+      </div>)
     );
 
     return (
