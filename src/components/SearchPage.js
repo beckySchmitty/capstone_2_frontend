@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react"
 import SearchForm from "./SearchForm"
 import backendAPI from "../API/backendAPI"
 import OmdbApi from "../API/OmdbApi"
-import ErrorComponent from "../Helpers/ErrorComponent"
+import ErrorComponent from "../helpers/ErrorComponent"
 import MovieCard from "./MovieCard"
-import "../Styles/Search.css"
+import "../styles/Search.css"
 
 const SearchPage = () => {
     const [movie, setMovie] = useState(null);

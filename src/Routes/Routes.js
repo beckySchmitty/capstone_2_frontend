@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Home from "../Home/Home";
-import SearchPage from "../Search/SearchPage"
-import LoginForm from "../User/LoginForm";
-import SignupForm from "../User/SignupForm";
-import MovieDetails from "../Search/MovieDetails"
+import Home from "../components/Home";
+import SearchPage from "../components/SearchPage"
+import LoginForm from "../user/LoginForm";
+import SignupForm from "../user/SignupForm";
+import MovieDetails from "../components/MovieDetails"
 
 
 // Site Wide Frontend Routes

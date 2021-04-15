@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import backendAPI from "../API/backendAPI"
 import OmdbApi from "../API/OmdbApi"
 import MovieCard from "./MovieCard"
-import "../Styles/Search.css"
+import "../styles/Search.css"
 
 const SearchOld = () => {
   const [data, setData] = useState(null)

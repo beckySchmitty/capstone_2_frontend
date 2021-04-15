@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import "../Styles/Home.css";
+import "../styles/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
-import UserContext from "../User/UserContext";
 
 import { Button } from 'reactstrap';
 
@@ -13,7 +11,6 @@ import { Button } from 'reactstrap';
 
 
 function Homepage() {
-  const { currentUser } = useContext(UserContext);
   const history = useHistory();
 
 
