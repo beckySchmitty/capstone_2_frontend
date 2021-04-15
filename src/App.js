@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import jwt from "jsonwebtoken";
 import NavBar from "./routes/MyNavBar"
-import Routes from "./Routes/Routes";
+import Routes from "./routes/routes";
 import backendAPI from "./API/backendAPI"
 import useLocalStorage from "./helpers/useLocalStorage";
 
