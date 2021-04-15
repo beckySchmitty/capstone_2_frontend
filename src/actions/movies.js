@@ -6,8 +6,8 @@ import backendAPI from "../API/backendAPI"
 export function getMovieFromBechdel(term) {
   return async function (dispatch) {
     const response = await backendAPI.getMovieByTitle(term);
-    console.log(`*********************ACTIONS API RESP: ${JSON.stringify(response)}`)
-    return dispatch(geMovieBechdel(response.data));
+    console.log(`*********************ACTIONS API RESP: ${JSON.stringify(response.data[0])}`)
+    return dispatch(geMovieBechdel(response.data[0]));
   };
 }
 

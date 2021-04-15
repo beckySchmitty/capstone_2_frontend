@@ -33,10 +33,13 @@ const SearchPage = () => {
     }
     }, [dispatch, term]);
 
-    // if (movies.hasOwnProperty(term)) {
-    //   setDoneLoading(true)
-
-    // }
+    const movieList = movies.map(m => (
+      <MovieCard 
+        key={m.id} 
+        yr={m.yr}
+        title={m.title}
+      />)
+    );
 
     return (
       <div>
@@ -44,14 +47,7 @@ const SearchPage = () => {
         <SearchForm search={search} />
 
         <div>
-        {doneLoading ? <MovieCard 
-        // key={movie.id} 
-        // id={movie.id} 
-        // yr={movie.yr} 
-        // imdb_id={movie.term} 
-        title={JSON.stringify(movies)} 
-        // rating={movie.rating}
-         />
+        {doneLoading ? movieList
         : <h4>No movie searched</h4>}
         </div>
 
@@ -63,3 +59,14 @@ const SearchPage = () => {
   };
 
 export default SearchPage;
+
+
+{/* <MovieCard 
+        key={movies[0].id} 
+        id={movies[0].id} 
+        yr={movies[0].yr} 
+        imdb_id={movies[0].imdb_id} 
+        title={movies[0].title} 
+        title={JSON.stringify(movies)} 
+        rating={movies[0].rating}
+         /> */}
