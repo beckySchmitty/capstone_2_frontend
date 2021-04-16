@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from "react"
 import SearchForm from "./SearchForm"
-import backendAPI from "../API/backendAPI"
-import OmdbApi from "../API/OmdbApi"
 import MovieCard from "./MovieCard"
 import "../styles/Search.css"
 import { useSelector, useDispatch } from "react-redux";
-import {getMovieFromBechdel} from "../actions/movies"
+import {getMovieFromBechdel, getMovieFromOMDB} from "../actions/movies"
 
 const SearchPage = () => {
     const [term, setTerm] = useState(null);
@@ -22,21 +20,34 @@ const SearchPage = () => {
     };
 
 
-    // refactor draft w/ redux
+    // Get movie data from Bechdel API
     useEffect(function loadMovieWithSearch() {
       if (term) {
       async function getMovie() {
         dispatch(getMovieFromBechdel(term));
       }
       getMovie()
+      setDoneLoading(false)
+    }
+    }, [dispatch, term]);
+
+    // Get movie data (poster url) from OMDB API
+    useEffect(function loadDetailsFromID() {
+      if (term) {
+      async function getMovieDeets() {
+        dispatch(getMovieFromOMDB(term));
+      }
+      getMovieDeets()
       setDoneLoading(true)
     }
     }, [dispatch, term]);
 
+
     const movieList = movies.map(m => (
       <div className="Search-parent">
       <MovieCard 
-        key={m.imdb_id} 
+        key={m.imdb_id}
+        imdb_id={m.imdb_id} 
         yr={m.yr}
         title={m.title}
       />
