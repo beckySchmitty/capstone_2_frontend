@@ -5,7 +5,7 @@ import Home from "../components/Home";
 import SearchPage from "../components/SearchPage"
 import LoginForm from "../user/LoginForm";
 import SignupForm from "../user/SignupForm";
-import MovieDetails from "../components/MovieDetails"
+import MovieDetailPage from "../components/MovieDetailPage"
 
 
 // Site Wide Frontend Routes
@@ -24,7 +24,7 @@ const Routes = ({login, signup}) => {
           </Route>
 
           <Route exact path="/movies/:imdb_id">
-            <MovieDetails />
+            <MovieDetailPage />
           </Route>
 
           <Route exact path="/login">
