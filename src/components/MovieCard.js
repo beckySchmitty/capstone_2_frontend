@@ -1,10 +1,21 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button } from 'reactstrap';
+import {getMovieFromOMDB } from "../actions/movies"
 
 
 const MovieCard = ({yr, imdb_id, title, rating, src}) => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    // Get IMDB data from backend API
+    useEffect(function loadDetailsFromID() {
+      async function getMovieDeets() {
+        dispatch(getMovieFromOMDB(imdb_id));
+      }
+      getMovieDeets()
+    }, [dispatch, imdb_id]);
 
 
     const toMovieDetails = (imdb_id) => {

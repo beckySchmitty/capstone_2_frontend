@@ -19,7 +19,7 @@ const SearchPage = () => {
     };
 
 
-    // Get movie data from Bechdel API
+    // Get bechdel movie data from Bechdel API
     useEffect(function loadMovieWithSearch() {
       if (term) {
       async function getMovie() {
@@ -29,6 +29,7 @@ const SearchPage = () => {
       setDoneLoading(true)
     }
     }, [dispatch, term]);
+
 
 
     const movieList = movies.map(m => (
@@ -61,3 +62,14 @@ const SearchPage = () => {
 
 export default SearchPage;
 
+
+    // Get bechdel movie data from Bechdel API
+    // useEffect(function loadMovieWithSearch() {
+    //   if (term) {
+    //   async function getMovie() {
+    //     dispatch(getMovieFromBechdel(term));
+    //   }
+    //   getMovie()
+    //   setDoneLoading(true)
+    // }
+    // }, [dispatch, term]);

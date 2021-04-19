@@ -1,59 +1,53 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import { useHistory, useParams } from "react-router-dom";
 import { Button } from 'reactstrap';
-import { useSelector, useDispatch } from "react-redux";
-import {getMovieFromOMDB} from "../actions/movies"
+import { useSelector } from "react-redux";
 import MovieDetail from "./MovieDetail"
 
 
 const MovieDetails = () => {
-    const dispatch = useDispatch();
     const history = useHistory();
-    const { imdb_id } = useParams();
-    // const movies = useSelector(st => st.movies);
+    const {imdb_id} = useParams();
     const OMDBData = useSelector(st => st.OMDB);
-    const [doneLoading, setDoneLoading] = useState(false)
+    const movies = useSelector(st => st.movies);
+    const BechdelData = {}
+    const oneMovie = {}
 
-    // find movie data by imdb_id
-    // for (let i=0; i< movies.length; i++) {
-    //     if (movies[i].imdb_id === imdb_id) {
-    //         for (let [k,v] of Object.entries(movies[i])) {
-    //             BechdelData[k] = v;
-    //         }
-    //     }
-    // }
+    // find bechdel data by imdb_id
+    for (let i=0; i< movies.length; i++) {
+        if (movies[i].imdb_id === imdb_id) {
+            for (let [k,v] of Object.entries(movies[i])) {
+                BechdelData[k] = v;
+            }
+        }
+    }
 
-    useEffect(function loadDetailsFromID() {
-      async function getMovieDeets() {
-        dispatch(getMovieFromOMDB(imdb_id));
+    // find OMDB data by imdb_id
+    for (let i=0; i< OMDBData.length; i++) {
+      if (OMDBData[i].imdbID === `tt${imdb_id}`) {
+          for (let [k,v] of Object.entries(OMDBData[i])) {
+            oneMovie[k] = v;
+          }
       }
-      getMovieDeets()
-      setDoneLoading(true)
-
-    }, [dispatch]);
-
-
+  }
 
     const toSearchPage = () => {
         history.push(`/search`);
     }
 
+
     return (
         <div>
-            {doneLoading ? 
-            <div className="MovieDetail">
-            <MovieDetail 
-              key={imdb_id}
-              imdb_id={imdb_id} 
-              title={OMDBData[0].Title}
-              src={OMDBData[0].Poster}
-              director={OMDBData[0].Director}
-              imdbRating={OMDBData[0].imdbRating}
-              plot={OMDBData[0].plot}
-            />
-            </div>
-            : <p>not done loading</p>
-            }
+          <MovieDetail 
+          key={oneMovie.id}
+          imdb_id={oneMovie.id} 
+          title={oneMovie.Title}
+          src={oneMovie.Poster}
+          // rating={BechdelData[o].rating}
+          // director={OMDBData["Dog Days"].Director}
+          // imdbRating={OMDBData["Dog Days"].imdbRating}
+          // plot={OMDBData["Dog Days"].plot}
+        />
             <Button outline color="info" onClick={toSearchPage}>Search More</Button>{' '}
         </div>
     )

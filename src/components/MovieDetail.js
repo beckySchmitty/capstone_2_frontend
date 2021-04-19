@@ -1,5 +1,7 @@
 import React from "react"
 
+// displays single movie details
+
 const MovieDetail = ({yr, imdb_id, title, rating, src, director, plot, imdbRating}) => {
 
     return (
