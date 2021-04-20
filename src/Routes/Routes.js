@@ -3,8 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "../components/Home";
 import SearchPage from "../components/SearchPage"
-import LoginForm from "../user/LoginForm";
-import SignupForm from "../user/SignupForm";
+import LoginForm from "../components_user/LoginForm";
+import SignupForm from "../components_user/SignupForm";
 import MovieDetailPage from "../components/MovieDetailPage"
 
 

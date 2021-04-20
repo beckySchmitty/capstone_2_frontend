@@ -1,4 +1,4 @@
-// Calls to backend API with imported .csv bechdel data in db
+// Calls to backend API writtein in Express with imported .csv bechdel data in db
 
 import axios from "axios";
 
@@ -45,15 +45,24 @@ class backendAPI {
 
   // User login - get token from username, password
   static async login(data) {
-    let res = await this.request(`auth/token`, data, "post");
+    let res = await this.request(`user/login`, data, "post");
     return res.token;
   }
 
   // User Signup
   static async signup(data) {
-    let res = await this.request(`auth/register`, data, "post");
+    let res = await this.request(`user/register`, data, "post");
     return res.token;
   }
+
+    // GET currentUser
+    static async getCurrentUser(username) {
+      let res = await this.request(`user/${username}`);
+      console.log(`&&&&&&&&&&&&&&&&${JSON.stringify(res)}`)
+      return res;
+    }
+
+
 }
 
 

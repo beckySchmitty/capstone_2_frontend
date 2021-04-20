@@ -11,6 +11,8 @@ return (
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href="/search">Search</Nav.Link>
+      <Nav.Link href="/signup">Signup</Nav.Link>
+      <Nav.Link href="/login">Login</Nav.Link>
       {/* <Nav.Link href="#profile">Profile</Nav.Link> */}
       <NavDropdown title="Profile" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Account</NavDropdown.Item>

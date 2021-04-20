@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import NavBar from "./routes/MyNavBar"
 import Routes from "./routes/routes";
 import backendAPI from "./API/backendAPI"
 import useLocalStorage from "./helpers/useLocalStorage";
-
-
 import './styles/App.css';
-import ReactDOM from 'react-dom'
+import { useSelector, useDispatch } from "react-redux";
+import {addCurrentUser} from "./actions/users"
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faVenus } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,9 +18,36 @@ library.add(faVenus)
 
 function App() {
   const [token, setToken] = useLocalStorage("token");
-  const [currentUser, setCurrentUser] = useState(null);
+  // const currentUser = useSelector(st => st.currentUser);
+  const dispatch = useDispatch();
 
-  // ADD FUNC TO LOAD USER
+  // LOAD currentUser- side effect
+  // Runs with token change
+  useEffect(function loadUserFromAPI() {
+
+    // *********
+      async function getCurrentUser() {
+        if (token) {
+          try {
+            // grab username
+            let { username } = jwt.decode(token);
+            // save token to Api class so it can be used in API call
+            backendAPI.token = token;
+            let currentUser = await backendAPI.getCurrentUser(username);
+  
+            // Update currentUser state
+            dispatch(addCurrentUser(currentUser))
+
+          } catch (error) {
+            console.error("loadUserFromAPI Error (App)", error);
+            dispatch(addCurrentUser(null))
+          }
+        }
+      }
+    // *********
+  
+      getCurrentUser();
+    }, [token]);
 
 
 

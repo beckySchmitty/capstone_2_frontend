@@ -4,7 +4,7 @@ export default function rootReducer(state = [], action) {
     switch (action.type) {
   
       case SET_CURR_USER:
-        return { ...state, [action.curr_user.id]: action.curr_user };
+        return { ...state, [action.currentUser.id]: action.currentUser };
 
       default:
         return state;
