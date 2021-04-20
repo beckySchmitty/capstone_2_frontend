@@ -31,15 +31,15 @@ class backendAPI {
 
   // ***************************************Individual API routes
 
-  // Get movies that match search term for TITLE 
-  static async getMovieByTitle(term) {
+  // Get movies by TITLE
+  static async getMoviesByTitle(term) {
     let res = await this.request(`bechdel/title/${term}`);
     return res;
     }
 
-  // Get Movies - all from 2020
-  static async getAll2020Movies() {
-    let res = await this.request("bechdel/all");
+  // Get movies by YEAR
+  static async getMoviesByYear(year) {
+    let res = await this.request(`bechdel/year/${year}`);
     return res;
    }
 

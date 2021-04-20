@@ -11,9 +11,9 @@ const MovieDetails = () => {
     const OMDBData = useSelector(st => st.OMDB);
     const movies = useSelector(st => st.movies);
     const BechdelData = {}
-    const oneMovie = {}
+    const movieData = {}
 
-    // find bechdel data by imdb_id
+    // find bechdel data in redux store by imdb_id
     for (let i=0; i< movies.length; i++) {
         if (movies[i].imdb_id === imdb_id) {
             for (let [k,v] of Object.entries(movies[i])) {
@@ -22,11 +22,11 @@ const MovieDetails = () => {
         }
     }
 
-    // find OMDB data by imdb_id
+    // find OMDB data redux store by imdb_id
     for (let i=0; i< OMDBData.length; i++) {
-      if (OMDBData[i].imdbID === `tt${imdb_id}`) {
+      if (OMDBData[i].imdbID === `tt${imdb_id}` || `tt0${imdb_id}`) {
           for (let [k,v] of Object.entries(OMDBData[i])) {
-            oneMovie[k] = v;
+            movieData[k] = v;
           }
       }
   }
@@ -35,18 +35,17 @@ const MovieDetails = () => {
         history.push(`/search`);
     }
 
-
     return (
         <div>
           <MovieDetail 
-          key={oneMovie.id}
-          imdb_id={oneMovie.id} 
-          title={oneMovie.Title}
-          src={oneMovie.Poster}
-          // rating={BechdelData[o].rating}
-          // director={OMDBData["Dog Days"].Director}
-          // imdbRating={OMDBData["Dog Days"].imdbRating}
-          // plot={OMDBData["Dog Days"].plot}
+          key={movieData.id}
+          imdb_id={movieData.imdbID} 
+          yr={movieData.Year}
+          title={movieData.Title}
+          src={movieData.Poster}
+          rating={BechdelData.rating}
+          director={movieData.Director}
+          plot={movieData.Plot}
         />
             <Button outline color="info" onClick={toSearchPage}>Search More</Button>{' '}
         </div>

@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import {getMovieFromOMDB } from "../actions/movies"
 
 
-const MovieCard = ({yr, imdb_id, title, rating, src}) => {
+const MovieCard = ({yr, imdb_id, title, rating}) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -27,11 +27,8 @@ const MovieCard = ({yr, imdb_id, title, rating, src}) => {
         className="Search-MovieCard">
             <h4>{title} ({yr})</h4>
             <h6>Bechdel Rating: {rating}</h6>
-            <hr></hr>
-            <img style={{width: `300px`, height: `auto`}} 
-            src={src}>
-            </img>
             <p>IMDB_ID: {imdb_id}</p>
+            <hr></hr>
             <Button outline color="info" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
         </div>
     )

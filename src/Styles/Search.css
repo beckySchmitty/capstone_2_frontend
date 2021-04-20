@@ -18,7 +18,7 @@
     background: red;
     min-width: 25%;
     /* border: 1px solid white; */
-    height: auto;
+    height: 300px;
     width: 200px;
     background-color: #4d4e6d;
     color: white;
@@ -27,11 +27,12 @@
     margin-left: 50px;
     padding-bottom: 20px;
     margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
   }
 
   h4 {
     color: white;
-
   }
   
   @media (max-width: 700px) {

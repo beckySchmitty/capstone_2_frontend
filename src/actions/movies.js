@@ -6,7 +6,7 @@ import getMovie from "../API/OMDB"
 
 export function getMovieFromBechdel(term) {
   return async function (dispatch) {
-    const response = await backendAPI.getMovieByTitle(term);
+    const response = await backendAPI.getMoviesByTitle(term);
     return dispatch(getMovieBechdel(response.data));
   };
 }
