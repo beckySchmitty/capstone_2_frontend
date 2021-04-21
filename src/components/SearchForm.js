@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Button, Form, FormGroup, Label, Input, InputGroupAddon } from 'reactstrap';
+
 
 
 const SearchForm = ({ search }) => {
@@ -15,10 +17,22 @@ const SearchForm = ({ search }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={term} onChange={handleChange} />
-      <button>Search!</button>
-    </form>
+    // <form onSubmit={handleSubmit}>
+    //   <input type="text" value={term} onChange={handleChange} />
+    //   <button>Search!</button>
+    // </form>
+    <div style={{width: `50%`, margin: `0 auto`}}>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label for="search"></Label>
+          <InputGroupAddon addonType="prepend">
+            <Button>SEARCH</Button>
+          <Input type="text" value={term} onChange={handleChange} id="search" />
+          </InputGroupAddon>
+        </FormGroup>
+    </Form>
+  </div>
+
   );
 };
 

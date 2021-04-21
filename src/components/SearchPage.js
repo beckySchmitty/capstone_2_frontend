@@ -3,7 +3,7 @@ import SearchForm from "./SearchForm"
 import MovieCard from "./MovieCard"
 import "../styles/Search.css"
 import { useSelector, useDispatch } from "react-redux";
-import {getMovieFromBechdel } from "../actions/movies"
+import {getMoviesFromBechdel } from "../actions/movies"
 
 const SearchPage = () => {
     const [term, setTerm] = useState(null);
@@ -20,12 +20,12 @@ const SearchPage = () => {
 
 
     // Get bechdel movie data from Bechdel API
-    useEffect(function loadMovieWithSearch() {
+    useEffect(function loadMoviesWithSearch() {
       if (term) {
-      async function getMovie() {
-        dispatch(getMovieFromBechdel(term));
+      async function getMovies() {
+        dispatch(getMoviesFromBechdel(term));
       }
-      getMovie()
+      getMovies()
       setDoneLoading(true)
     }
     }, [dispatch, term]);

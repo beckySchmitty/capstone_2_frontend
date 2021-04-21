@@ -31,6 +31,8 @@ const MovieDetails = () => {
       }
   }
 
+  
+
     const toSearchPage = () => {
         history.push(`/search`);
     }
@@ -39,7 +41,7 @@ const MovieDetails = () => {
         <div>
           <MovieDetail 
           key={movieData.id}
-          imdb_id={movieData.imdbID} 
+          imdb_id={BechdelData.imdb_id} 
           yr={movieData.Year}
           title={movieData.Title}
           src={movieData.Poster}

@@ -1,5 +1,5 @@
-import movies from "./movies"
-import OMDB from "./moviesTwo"
+import movies from "./movies_bechdel"
+import OMDB from "./movies_OMDB"
 import currentUser from './users';
 import { combineReducers } from "redux";
 

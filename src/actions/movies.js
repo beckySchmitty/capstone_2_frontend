@@ -4,14 +4,14 @@ import backendAPI from "../API/backendAPI"
 // import OmdbApi from "../API/OmdbApi"
 import getMovie from "../API/OMDB"
 
-export function getMovieFromBechdel(term) {
+export function getMoviesFromBechdel(term) {
   return async function (dispatch) {
     const response = await backendAPI.getMoviesByTitle(term);
-    return dispatch(getMovieBechdel(response.data));
+    return dispatch(getMoviesBechdel(response.data));
   };
 }
 
-function getMovieBechdel(movies) {
+function getMoviesBechdel(movies) {
   return {
     type: GET_BECH_MOVIE_BY_TITLE,
     movies,
@@ -21,7 +21,7 @@ function getMovieBechdel(movies) {
 export function getMovieFromOMDB(imdb_id) {
   return async function (dispatch) {
     const response = await getMovie(imdb_id);
-    console.log(`*********************ACTIONS API OMDB: ${JSON.stringify(response)}`)
+    // console.log(`*********************ACTIONS API OMDB: ${JSON.stringify(response)}`)
     return dispatch(getOMDBMovie(response));
   };
 }

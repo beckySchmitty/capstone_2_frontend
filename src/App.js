@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -8,7 +8,7 @@ import Routes from "./routes/routes";
 import backendAPI from "./API/backendAPI"
 import useLocalStorage from "./helpers/useLocalStorage";
 import './styles/App.css';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {addCurrentUser} from "./actions/users"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
