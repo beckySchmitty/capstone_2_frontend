@@ -17,10 +17,7 @@ const SearchForm = ({ search }) => {
   }
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <input type="text" value={term} onChange={handleChange} />
-    //   <button>Search!</button>
-    // </form>
+
     <div style={{width: `50%`, margin: `0 auto`}}>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
