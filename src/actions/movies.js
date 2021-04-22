@@ -21,7 +21,6 @@ function getMoviesBechdel(movies) {
 export function getMovieFromOMDB(imdb_id) {
   return async function (dispatch) {
     const response = await getMovie(imdb_id);
-    // console.log(`*********************ACTIONS API OMDB: ${JSON.stringify(response)}`)
     return dispatch(getOMDBMovie(response));
   };
 }

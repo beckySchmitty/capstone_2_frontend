@@ -19,14 +19,12 @@ function SignupForm({ signup }) {
 
   const [errors, setErrors] = useState([]);
 
-  console.log(`##############FORM DATA: ${JSON.stringify(formData)}`)
-
 
 // HANDLE SUBMIT - redirect or error
   async function handleSubmit(e) {
     e.preventDefault();
-
-    let resp = await signup(formData.user);
+    console.log(`##############FORM DATA: ${JSON.stringify(formData)}`)
+    let resp = await signup(formData);
     if (resp.success) {
       history.push("/search");
     } else {

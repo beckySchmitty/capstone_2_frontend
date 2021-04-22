@@ -1,16 +1,15 @@
-import React,  {useState, useEffect} from "react"
+import React,  {useEffect} from "react"
 import {useDispatch} from "react-redux";
 import {getMovieFromOMDB} from "../actions/movies"
-// import { Spinner } from 'reactstrap';
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
-// displays single movie details
-// MovieDetailPage => 
+// displays details for a single movie 
+
 
 const MovieDetail = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const {imdb_id} = useParams();
     const dispatch = useDispatch();
     const movies = useSelector(st => st.movies);
@@ -39,7 +38,7 @@ const MovieDetail = () => {
     return (
             <div>
                 {OMDBData[0] ? <div><div style={{display: `inline-block`, verticalAlign: `middle`}}>
-                                <img style={{width: `300px`, height: `auto`, display: `inline-block`}} 
+                                <img alt="#" style={{width: `300px`, height: `auto`, display: `inline-block`}} 
                                 src={OMDBData[0].Poster}>
                                 </img>
                             </div>

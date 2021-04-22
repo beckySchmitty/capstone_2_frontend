@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import NavBar from "./routes/MyNavBar"
 import Routes from "./routes/routes";
 import backendAPI from "./API/backendAPI"
-import useLocalStorage from "./helpers/useLocalStorage";
+// import useLocalStorage from "./helpers/useLocalStorage";
 import './styles/App.css';
 import { useDispatch } from "react-redux";
 import {addCurrentUser} from "./actions/users"
@@ -17,38 +17,31 @@ import { faVenus } from '@fortawesome/free-solid-svg-icons'
 library.add(faVenus)
 
 function App() {
-  const [token, setToken] = useLocalStorage("token");
-  // const currentUser = useSelector(st => st.currentUser);
+  const [token, setToken] = useState(false);
   const dispatch = useDispatch();
 
   // LOAD currentUser- side effect
   // Runs with token change
-  // useEffect(function loadUserFromAPI() {
+  useEffect(function loadUserFromAPI() {
 
-  //   // *********
-  //     async function getCurrentUser() {
-  //       if (token) {
-  //         try {
-  //           // grab username
-  //           let { username } = jwt.decode(token);
-  //           // save token to Api class so it can be used in API call
-  //           backendAPI.token = token;
-  //           let currentUser = await backendAPI.getCurrentUser(username);
-  
-  //           // Update currentUser state
-  //           dispatch(addCurrentUser(currentUser))
+      async function getCurrentUser() {
+        if (token) {
+          try {
+            // grab username
+            let { username } = jwt.decode(token);
+            // save token to Api class so it can be used in API call
+            backendAPI.token = token;
+            let data = await backendAPI.getCurrentUser(username);
+            // Update currentUser state
+            dispatch(addCurrentUser(data.user))
 
-  //         } catch (error) {
-  //           console.error("loadUserFromAPI Error (App)", error);
-  //           dispatch(addCurrentUser(null))
-  //         }
-  //       }
-  //     }
-  //   // *********
-  
-  //     getCurrentUser();
-  //   }, [token]);
-
+          } catch (error) {
+            console.error("^^loadUserFromAPI Error: ", error);
+          }
+        }
+      }  
+      getCurrentUser();
+    }, [dispatch, token]);
 
 
     // Handles site-wide signup

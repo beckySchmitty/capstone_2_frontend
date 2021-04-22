@@ -66,10 +66,8 @@ class backendAPI {
     // GET currentUser
   static async getCurrentUser(username) {
       let res = await this.request(`user/${username}`);
-      console.log(`&&&&&&&&&&&&&&&&${JSON.stringify(res)}`)
       return res;
     }
-
 
 }
 
