@@ -23,31 +23,31 @@ function App() {
 
   // LOAD currentUser- side effect
   // Runs with token change
-  useEffect(function loadUserFromAPI() {
+  // useEffect(function loadUserFromAPI() {
 
-    // *********
-      async function getCurrentUser() {
-        if (token) {
-          try {
-            // grab username
-            let { username } = jwt.decode(token);
-            // save token to Api class so it can be used in API call
-            backendAPI.token = token;
-            let currentUser = await backendAPI.getCurrentUser(username);
+  //   // *********
+  //     async function getCurrentUser() {
+  //       if (token) {
+  //         try {
+  //           // grab username
+  //           let { username } = jwt.decode(token);
+  //           // save token to Api class so it can be used in API call
+  //           backendAPI.token = token;
+  //           let currentUser = await backendAPI.getCurrentUser(username);
   
-            // Update currentUser state
-            dispatch(addCurrentUser(currentUser))
+  //           // Update currentUser state
+  //           dispatch(addCurrentUser(currentUser))
 
-          } catch (error) {
-            console.error("loadUserFromAPI Error (App)", error);
-            dispatch(addCurrentUser(null))
-          }
-        }
-      }
-    // *********
+  //         } catch (error) {
+  //           console.error("loadUserFromAPI Error (App)", error);
+  //           dispatch(addCurrentUser(null))
+  //         }
+  //       }
+  //     }
+  //   // *********
   
-      getCurrentUser();
-    }, [token]);
+  //     getCurrentUser();
+  //   }, [token]);
 
 
 

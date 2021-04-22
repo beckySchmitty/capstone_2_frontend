@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = "http://localhost:3001";
 
 // API class for backend API
 
@@ -51,7 +51,15 @@ class backendAPI {
 
   // User Signup
   static async signup(data) {
-    let res = await this.request(`user/register`, data, "post");
+    let res = await axios({
+      method: 'post',
+      url: 'http://localhost:3001/user/register',
+      data, 
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  
+    });
     return res.token;
   }
 
