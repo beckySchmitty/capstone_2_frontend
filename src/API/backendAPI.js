@@ -60,7 +60,7 @@ class backendAPI {
       }
   
     });
-    return res.token;
+    return res.data.token;
   }
 
     // GET currentUser

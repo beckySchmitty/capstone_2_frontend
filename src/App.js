@@ -24,6 +24,7 @@ library.add(faVenus)
 
 function App() {
   const dispatch = useDispatch();
+  // const [token, setToken] = useState(null)
 
     function addUserToReduxStore(token) {
       let { username } = jwt.decode(token);

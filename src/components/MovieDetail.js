@@ -16,6 +16,7 @@ const MovieDetail = () => {
     const dispatch = useDispatch();
     const movies = useSelector(st => st.movies);
     const OMDBData = useSelector(st => st.OMDB);
+    const currentUser = useSelector(st => st.currentUser)
 
     const BechdelData = {}
 
@@ -38,6 +39,11 @@ const MovieDetail = () => {
     }, [dispatch, imdb_id]);
 
 
+    // add to watchlist func
+    // First update backend  to handle adding OMDB data
+    // Then update backend to handle adding omdb_id and user_id to watchlist
+
+
     return (
             <div>
                 {OMDBData[0] ? <div><div style={{display: `inline-block`, verticalAlign: `middle`}}>
@@ -52,6 +58,7 @@ const MovieDetail = () => {
                                 <p>{OMDBData[0].Plot}</p>
                                 <p>IMDB_ID: {imdb_id}</p>
                             </div>
+                            {currentUser && <div><button>Add to watchlist</button></div>}
                             </div>
                             : <div>not done loading</div>}
 
