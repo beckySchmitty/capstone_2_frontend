@@ -1,8 +1,14 @@
-import {GET_BECH_MOVIE_BY_TITLE} from "../actions/types"
+import {GET_BECH_MOVIE_BY_TITLE, RESET_ALL} from "../actions/types"
 
-export default function rootReducer(state = [], action) {
+const INITIAL_STATE = [];
+
+
+export default function rootReducer(state = INITIAL_STATE, action) {
 
     switch (action.type) {
+
+      case RESET_ALL:
+        return [...INITIAL_STATE ];
   
       case GET_BECH_MOVIE_BY_TITLE:
         return [ ...state, ...action.movies ];

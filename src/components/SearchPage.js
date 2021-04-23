@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard"
 import "../styles/Search.css"
 import { useSelector, useDispatch } from "react-redux";
 import {getMoviesFromBechdel } from "../actions/movies"
+import { RESET_ALL } from "../actions/types";
 
 const SearchPage = () => {
     const [term, setTerm] = useState(null);
@@ -23,6 +24,7 @@ const SearchPage = () => {
     useEffect(function loadMoviesWithSearch() {
       if (term) {
       async function getMovies() {
+        dispatch({type: RESET_ALL})
         dispatch(getMoviesFromBechdel(term));
       }
       getMovies()

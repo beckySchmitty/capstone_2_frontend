@@ -1,7 +1,6 @@
 // import axios from "axios";
 import {GET_BECH_MOVIE_BY_TITLE, GET_OMDB_MOVIE_DETAILS} from "./types"
 import backendAPI from "../API/backendAPI"
-// import OmdbApi from "../API/OmdbApi"
 import getMovie from "../API/OMDB"
 
 export function getMoviesFromBechdel(term) {

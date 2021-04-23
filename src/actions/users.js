@@ -1,10 +1,10 @@
 import {SET_CURR_USER} from "./types"
 import backendAPI from "../API/backendAPI"
 
-export function addCurrentUser(currentUser) {
+export function addCurrentUser(username) {
   return async function (dispatch) {
-    // let userData = await backendAPI.getCurrentUser(username)
-    return dispatch(setCurrentUser(currentUser));
+    let data = await backendAPI.getCurrentUser(username)
+    return dispatch(setCurrentUser(data.user));
   };
 }
 

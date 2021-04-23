@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
-const MyNavBar = () => {
 
+const MyNavBar = () => {
 
 return (
     <div>
@@ -13,11 +13,9 @@ return (
       <Nav.Link href="/search">Search</Nav.Link>
       <Nav.Link href="/signup">Signup</Nav.Link>
       <Nav.Link href="/login">Login</Nav.Link>
-      {/* <Nav.Link href="#profile">Profile</Nav.Link> */}
       <NavDropdown title="Profile" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Account</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
-        {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+        <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>

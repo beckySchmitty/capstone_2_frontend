@@ -3,6 +3,8 @@ import {useDispatch} from "react-redux";
 import {getMovieFromOMDB} from "../actions/movies"
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { RESET_ALL } from "../actions/types";
+
 
 
 // displays details for a single movie 
@@ -29,6 +31,7 @@ const MovieDetail = () => {
     // Get OMDB data from backend API
     useEffect(function loadDetailsFromID() {
       async function getMovieDeets() {
+        dispatch({type: RESET_ALL})
         dispatch(getMovieFromOMDB(imdb_id));
       }
       getMovieDeets()

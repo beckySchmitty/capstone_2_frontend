@@ -1,10 +1,15 @@
-import {SET_CURR_USER} from "../actions/types"
+import {SET_CURR_USER, LOGOUT_CURR_USER} from "../actions/types"
 
-export default function rootReducer(state = [], action) {
+const INITIAL_STATE = {}
+
+export default function rootReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
   
       case SET_CURR_USER:
-        return { ...state, [action.currentUser.id]: action.currentUser };
+        return {[action.currentUser.id]: action.currentUser };
+      
+      case LOGOUT_CURR_USER:
+        return INITIAL_STATE;
 
       default:
         return state;

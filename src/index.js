@@ -3,28 +3,33 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./reducers/root";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import { store, persistedStore} from "./store"
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk)));
+
+/**
+ * Renders App.js
+ * Creates the Redux store and persistedStore 
+ * 
+ */
 
 ReactDOM.render(
   <Provider store={store}>
+    <PersistGate loading={null} persistor={persistedStore}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
+
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(
+//     applyMiddleware(thunk)));
