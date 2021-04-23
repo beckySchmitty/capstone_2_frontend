@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import AlertMsg from "../helpers/AlertMsg";
 
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 // Signup Form
 // manages update to state on change
@@ -43,21 +45,21 @@ function SignupForm({ signup }) {
           <h3>SIGN UP TODAY</h3>
 
           <div>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <div>
-                  <label>Username</label>
-                  <input
+            <div style={{width: `50%`, margin: `0 auto`}}>
+              <Form onSubmit={handleSubmit}>
+              <FormGroup>
+                  <Label>Username</Label>
+                  <Input
                       name="username"
                       value={formData.username}
                       onChange={handleChange}
                       autoComplete="username"
                       required
                   />
-                </div>
-                <div>
-                  <label>Password</label>
-                  <input
+              </FormGroup>
+              <FormGroup>
+                  <Label>Password</Label>
+                  <Input
                     name="password"
                       type="password"
                       value={formData.password}
@@ -65,25 +67,25 @@ function SignupForm({ signup }) {
                       autoComplete="current-password"
                       required
                     />
-                    </div>
-                <div>
-                  <label>Email</label>
-                  <input
+                </FormGroup>
+                <FormGroup>
+                  <Label>Email</Label>
+                  <Input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                   />
-                </div>
-                <div>
-                  <label>Profile Picture (URL)</label>
-                  <input
+                </FormGroup>
+                <FormGroup>
+                  <Label>Profile Picture (URL)</Label>
+                  <Input
                       type="img_url"
                       name="img_url"
                       value={formData.img_url}
                       onChange={handleChange}
                   />
-                </div>
+                </FormGroup>
 
 
         {/* SHOW ERRORS IF ANY */}
@@ -91,8 +93,8 @@ function SignupForm({ signup }) {
                     ? <AlertMsg type="danger" messages={errors} />
                     : null}
 
-                <button onSubmit={handleSubmit}>Submit</button>
-              </form>
+                <Button onSubmit={handleSubmit}>Submit</Button>
+              </Form>
 
             </div>
           </div>

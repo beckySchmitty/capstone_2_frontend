@@ -12,9 +12,9 @@ return (
     <Nav className="mr-auto">
       <Nav.Link href="/search">Search</Nav.Link>
       <Nav.Link href="/signup">Signup</Nav.Link>
-      <Nav.Link href="/login">Login</Nav.Link>
-      <NavDropdown title="Profile" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Account</NavDropdown.Item>
+      <NavDropdown title="Account" id="basic-nav-dropdown">
+        <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+        <NavDropdown.Item href="/login">Login</NavDropdown.Item>
         <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
       </NavDropdown>
     </Nav>

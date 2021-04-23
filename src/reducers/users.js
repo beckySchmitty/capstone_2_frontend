@@ -6,7 +6,7 @@ export default function rootReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
   
       case SET_CURR_USER:
-        return {[action.currentUser.id]: action.currentUser };
+        return {...action.currentUser };
       
       case LOGOUT_CURR_USER:
         return INITIAL_STATE;
