@@ -35,9 +35,9 @@ const SearchPage = () => {
 
 
     const movieList = movies.map(m => (
-      <div>
+      <div key={m.imdb_id}
+      >
       <MovieCard 
-        key={m.imdb_id}
         imdb_id={m.imdb_id} 
         yr={m.yr}
         title={m.title}

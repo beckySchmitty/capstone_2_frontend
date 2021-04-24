@@ -1,9 +1,9 @@
-import React,  {useEffect} from "react"
+import React, {useState, useEffect} from "react";
 import {useDispatch} from "react-redux";
-import {getMovieFromOMDB} from "../actions/movies"
+import {getMovieFromOMDB, addToOMDBbackend} from "../actions/movies"
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RESET_ALL } from "../actions/types";
+// import { RESET_ALL } from "../actions/types";
 
 
 
@@ -32,11 +32,21 @@ const MovieDetail = () => {
     // Get OMDB data from backend API
     useEffect(function loadDetailsFromID() {
       async function getMovieDeets() {
-        dispatch({type: RESET_ALL})
-        dispatch(getMovieFromOMDB(imdb_id));
+        // dispatch({type: RESET_ALL})
+        dispatch(getMovieFromOMDB(imdb_id, BechdelData.rating));
       }
       getMovieDeets()
     }, [dispatch, imdb_id]);
+
+    // Post OMDB data to backend database
+
+        useEffect(function postToBackendDB() {
+            async function addMovie() {
+              dispatch(addToOMDBbackend(OMDBData[0]));
+            }
+            addMovie()
+          }, [dispatch, OMDBData]);
+
 
 
     // add to watchlist func

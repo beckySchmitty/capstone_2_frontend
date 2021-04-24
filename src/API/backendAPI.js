@@ -43,6 +43,19 @@ class backendAPI {
     return res;
    }
 
+   static async addToOMDB(data) {
+    let res = await axios({
+      method: 'post',
+      url: 'http://localhost:3001/omdb/add',
+      data, 
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  
+    });    
+    return res;
+  }
+
   // User login - get token from username, password
   static async login(data) {
     let res = await this.request(`user/login`, data, "post");
