@@ -3,8 +3,7 @@ import {useDispatch} from "react-redux";
 import {getMovieFromOMDB, addToOMDBbackend} from "../actions/movies"
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { RESET_ALL } from "../actions/types";
-
+import backendAPI from "../API/backendAPI"
 
 
 // displays details for a single movie 
@@ -39,19 +38,20 @@ const MovieDetail = () => {
     }, [dispatch, imdb_id]);
 
     // Post OMDB data to backend database
-
-        useEffect(function postToBackendDB() {
-            async function addMovie() {
-              dispatch(addToOMDBbackend(OMDBData[0]));
-            }
-            addMovie()
-          }, [dispatch, OMDBData]);
-
+    useEffect(function saveOMDBData() {
+        async function addMovie() {
+            dispatch(addToOMDBbackend(OMDBData[0]));
+        }
+        addMovie()
+        }, [dispatch, OMDBData]);
 
 
-    // add to watchlist func
-    // First update backend  to handle adding OMDB data
-    // Then update backend to handle adding omdb_id and user_id to watchlist
+    // put inside useEffect
+    async function addToWatchlist() {
+        const response = await backendAPI.addToWatchlist(imdb_id, currentUser.id);
+        console.log(`ADDED: ${JSON.stringify(response.data)}`)
+    }
+            
 
 
     return (
@@ -68,7 +68,7 @@ const MovieDetail = () => {
                                 <p>{OMDBData[0].Plot}</p>
                                 <p>IMDB_ID: {imdb_id}</p>
                             </div>
-                            {currentUser && <div><button>Add to watchlist</button></div>}
+                            {currentUser && <div><button onClick={addToWatchlist}>Add to watchlist</button></div>}
                             </div>
                             : <div>not done loading</div>}
 

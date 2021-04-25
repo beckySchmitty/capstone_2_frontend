@@ -6,6 +6,8 @@ NO_ADD} from "./types"
 import backendAPI from "../API/backendAPI"
 import getMovie from "../API/OMDB"
 
+const MOVIES = [];
+
 
 // ***
 // GET movie from backend API with bechdel data
@@ -29,29 +31,31 @@ function getMoviesBechdel(movies) {
 export function addToOMDBbackend(data) {
   return async function (dispatch) {
     const response = await backendAPI.addToOMDB(data);
-    console.log(`%%%RESPONSE::: ${JSON.stringify(response)}%%%MSG::: ${JSON.stringify(response.data.msg)}`)
-    if (response.data.msg = "do not dispatch") {
-      console.log(`%%%%RESP MSG ${response.data.msg}`)
-      return dispatch(doNotAdd(data))
-    } else {
+    if (MOVIES.includes(response.data.Title)) {
+      return "ERROR: Already added"
+    } 
+    else {
+      MOVIES.push(response.data.Title)      
       return dispatch(addToDatabase(response.data));
     }
   };
 }
 
 function addToDatabase(movie) {
-  return {
-    type: ADD_TO_OMDB,
-    movie,
-  };
+    return {
+      type: ADD_TO_OMDB,
+      movie,
+    };
 }
 
-function doNotAdd(data) {
-  return {
-    type: NO_ADD,
-    data,
-  };
-}
+
+
+// function doNotAdd(data) {
+//   return {
+//     type: NO_ADD,
+//     data,
+//   };
+// }
 
 
 

@@ -43,6 +43,7 @@ class backendAPI {
     return res;
    }
 
+  //  POST movie to omdb_movies table database 
    static async addToOMDB(data) {
     let res = await axios({
       method: 'post',
@@ -56,13 +57,48 @@ class backendAPI {
     return res;
   }
 
-  // User login - get token from username, password
+
+    //  POST info to to watchlist table in database 
+    static async addToWatchlist(imdb_id, user_id) {
+      let data = {imdb_id, user_id}
+      let res = await axios({
+        method: 'post',
+        url: 'http://localhost:3001/omdb/add/watchlist',
+        data, 
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    
+      });    
+      return res;
+    }
+  
+    //  GET current user watchlist
+    static async getWatchlist(user_id) {
+      let data = {user_id}
+      let res = await axios({
+        method: 'post',
+        url: 'http://localhost:3001/user/watchlist',
+        data, 
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    
+      });    
+      return res.data;
+    }
+
+
+
+
+
+  // POST User login - get token from username, password
   static async login(data) {
     let res = await this.request(`user/login`, data, "post");
     return res.token;
   }
 
-  // User Signup
+  // POST User Signup
   static async signup(data) {
     let res = await axios({
       method: 'post',
