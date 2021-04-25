@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { Button } from 'reactstrap';
 
-
 // Home page of site
 // Explains Bechdel test
 
@@ -20,19 +19,14 @@ function Homepage() {
 
   return (
       <div className="Homepage">
-          <h1>What is the Bechdel test?</h1>
-            <div className="Homepage-faIcon">
-            <FontAwesomeIcon icon="venus" /> 
-            </div>
-          <h3>Movies rated on a 1-3 scale to rate how women are featured.</h3>
-          <div className="Homepage-ratingList">
-            <div> 1. It has at least two women in it
-            </div>
-            <div> 2. Who talk to eachother
-            </div>
-            <div> 3. About something besies a man
-            </div>
-          </div>
+          <h1 className= "Home-h1">Does your favorite movie pass the Bechdel test?</h1>
+            {/* <div className="Homepage-faIcon"><FontAwesomeIcon icon="venus" /></div> */}
+          <div className="Home-flex-container">
+        <div className="Home-flex-item"><h1>1</h1> <h5>It has at least two women</h5></div>
+        <div className="Home-flex-item"><h1>2</h1> <h5>Who talk to eachother</h5></div>
+        <div className="Home-flex-item"><h1>3</h1> <h5>About something besies a man</h5></div>
+    </div>
+
           <Button outline color="danger" onClick={toSearchPage}>SEARCH</Button>{' '}
       </div>
       

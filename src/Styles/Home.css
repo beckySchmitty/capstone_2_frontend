@@ -1,5 +1,6 @@
 body {
-background-color: #1c1e46;
+background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"); 
+background-size: cover;
 }
 
 h1, h3,ul,ol, p, div {
@@ -14,3 +15,25 @@ margin: 5px;
 padding: 5px;
 }
 
+.Home-flex-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+    border: 1px black solid;
+    margin: 0 auto;
+    color: white;
+}
+
+.Home-flex-item {
+    width: 200px;
+    height: 200px;
+    border: 1px black solid;
+    color: white;
+
+}
+
+.Home-h1 {
+    margin-top: 30px;
+}

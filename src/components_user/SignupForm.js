@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import AlertMsg from "../helpers/AlertMsg";
-
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import { Button, Form, FormGroup, Label, Input, Container, Col } from 'reactstrap';
+import "../styles/Form.css"
 
 // Signup Form
 // manages update to state on change
@@ -25,7 +24,6 @@ function SignupForm({ signup }) {
 // HANDLE SUBMIT - redirect or error
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(`##############FORM DATA: ${JSON.stringify(formData)}`)
     let resp = await signup(formData);
     if (resp.success) {
       history.push("/search");
@@ -41,12 +39,10 @@ function SignupForm({ signup }) {
   }
 
   return (
-        <div>
-          <h3>SIGN UP TODAY</h3>
-
-          <div>
-            <div style={{width: `50%`, margin: `0 auto`}}>
-              <Form onSubmit={handleSubmit}>
+          <Container className="Form" >
+            <h3>SIGN UP</h3>
+              <Form onSubmit={handleSubmit} className="Form-form">
+              <Col>
               <FormGroup>
                   <Label>Username</Label>
                   <Input
@@ -57,6 +53,8 @@ function SignupForm({ signup }) {
                       required
                   />
               </FormGroup>
+              </Col>
+              <Col>
               <FormGroup>
                   <Label>Password</Label>
                   <Input
@@ -64,10 +62,11 @@ function SignupForm({ signup }) {
                       type="password"
                       value={formData.password}
                       onChange={handleChange}
-                      autoComplete="current-password"
                       required
                     />
                 </FormGroup>
+                </Col>
+                <Col>
                 <FormGroup>
                   <Label>Email</Label>
                   <Input
@@ -77,6 +76,8 @@ function SignupForm({ signup }) {
                       onChange={handleChange}
                   />
                 </FormGroup>
+                </Col>
+                <Col>
                 <FormGroup>
                   <Label>Profile Picture (URL)</Label>
                   <Input
@@ -86,19 +87,16 @@ function SignupForm({ signup }) {
                       onChange={handleChange}
                   />
                 </FormGroup>
+                </Col>
 
 
-        {/* SHOW ERRORS IF ANY */}
                 {errors.length
                     ? <AlertMsg type="danger" messages={errors} />
                     : null}
 
                 <Button onSubmit={handleSubmit}>Submit</Button>
               </Form>
-
-            </div>
-          </div>
-        </div>
+            </Container>                  
   );
 }
 

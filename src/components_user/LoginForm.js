@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import { Button, Form, FormGroup, Label, Input, Container, Col } from 'reactstrap';
+import "../styles/Form.css"
 import AlertMsg from "../helpers/AlertMsg"
 
 // Login Form
@@ -36,45 +37,40 @@ function LoginForm({ login }) {
   }
 
   return (
-        <div>
-          <h3>LOGIN</h3>
+    <Container className="Form" >
+    <h3>LOGIN</h3>
+      <Form onSubmit={handleSubmit} className="Form-form">
+      <Col>
+      <FormGroup>
+          <Label>Username</Label>
+          <Input
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              autoComplete="username"
+              required
+          />
+      </FormGroup>
+      </Col>
+      <Col>
+      <FormGroup>
+          <Label>Password</Label>
+          <Input
+            name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+        </FormGroup>
+        </Col>
+        {errors.length
+            ? <AlertMsg type="danger" messages={errors} />
+            : null}
 
-          <div>
-            <div>
-              <form onSubmit={handleSubmit}>
-                <div>
-                  <label>Username</label>
-                  <input
-                      name="username"
-                      value={formData.username}
-                      onChange={handleChange}
-                      autoComplete="username"
-                      required
-                  />
-                </div>
-                <div>
-                  <label>Password</label>
-                  <input
-                    name="password"
-                      type="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      autoComplete="current-password"
-                      required
-                    />
-                    </div>
-
-        {/* SHOW ERRORS IF ANY */}
-                {errors.length
-                    ? <AlertMsg type="danger" messages={errors} />
-                    : null}
-
-                <button onSubmit={handleSubmit}>Submit</button>
-              </form>
-
-            </div>
-          </div>
-        </div>
+        <Button onSubmit={handleSubmit}>Submit</Button>
+      </Form>
+    </Container>
   );
 }
 
