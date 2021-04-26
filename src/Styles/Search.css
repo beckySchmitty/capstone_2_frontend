@@ -1,49 +1,30 @@
-.input-group.md-form.form-sm.form-1 input {
-    border: 1px solid #bdbdbd;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-  }
 
-  * {
-    box-sizing: border-box;  
-  }
-  
-  .Search-parent {
-    display: flex;
-    /* flex-wrap: wrap; */
-  }
-  
-  .Search-MovieCard {
-    height: 50px;
-    background: red;
-    min-width: 25%;
-    /* border: 1px solid white; */
-    height: 300px;
-    width: 200px;
-    background-color: #4d4e6d;
-    color: white;
-    padding-top: 20px;
-    border-radius: 15px;
-    margin-left: 50px;
-    padding-bottom: 20px;
-    margin: 10px;
+  .Search-flex-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 0;
+    margin: 0;
+    /* list-style: none; */
   }
+  
+  .MovieCard-flex-item {
+    background: tomato;
+    padding: 5px;
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
 
   h4 {
     color: white;
   }
   
-  @media (max-width: 700px) {
-    .child {
-      min-width: 33.33%; 
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .child {
-      min-width: 50%; 
-    }
-  }
+
 

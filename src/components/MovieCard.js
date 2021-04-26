@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-const MovieCard = ({yr, imdb_id, title, rating}) => {
+const MovieCard = ({id, yr, imdb_id, title, rating}) => {
   let history = useHistory();
 
 
@@ -13,12 +13,10 @@ const MovieCard = ({yr, imdb_id, title, rating}) => {
       }
 
     return (
-        <div 
-        className="Search-MovieCard">
+        <div className="MovieCard-flex-item" key={id}>
             <h4>{title} ({yr})</h4>
-            <h6>Bechdel Rating: {rating}</h6>
-            <p>IMDB_ID: {imdb_id}</p>
-            <hr></hr>
+            <h5>Bechdel Rating:{rating}</h5>
+            {/* <p>{imdb_id}</p> */}
             <Button outline color="info" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
         </div>
     )

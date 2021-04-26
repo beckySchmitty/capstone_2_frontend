@@ -35,15 +35,13 @@ const SearchPage = () => {
 
 
     const movieList = movies.map(m => (
-      <div key={m.imdb_id}
-      >
       <MovieCard 
+        key={m.imdb_id}
         imdb_id={m.imdb_id} 
         yr={m.yr}
         title={m.title}
         rating={m.rating}
-      />
-      </div>)
+      />)
     );
 
     return (
@@ -51,7 +49,7 @@ const SearchPage = () => {
         <h1>Search for a movie:</h1>
         <SearchForm search={search} />
 
-        <div className="Search-parent">
+        <div className="Search-flex-container">
         {doneLoading ? movieList
         : <h4>No movie searched</h4>}
         </div>
