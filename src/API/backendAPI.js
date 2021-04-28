@@ -72,8 +72,24 @@ class backendAPI {
       });    
       return res;
     }
+
+    
+    //  REMOVE from watchlist table in database 
+    static async removeFromWatchlist(user_id, imdb_id) {
+      let data = {user_id, imdb_id}
+      let res = await axios({
+        method: 'post',
+        url: 'http://localhost:3001/omdb/remove/watchlist',
+        data, 
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    
+      });    
+      return res;
+    }
   
-    //  GET current user watchlist
+    //  grab current user watchlist
     static async getWatchlist(user_id) {
       let data = {user_id}
       let res = await axios({

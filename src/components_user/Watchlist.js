@@ -1,9 +1,8 @@
-import React from "react"
-import "../styles/Watchlist.css"
+import React from "react";
+import "../styles/Watchlist.css";
 
 
-const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating}) => {
-
+const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating, removeMovie}) => {
 
     return (
         <div className="Watchlist-div" key={imdb_id}>
@@ -11,6 +10,7 @@ const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating}) => 
             <h5>{bechdel_rating}</h5>
             <p>{plot}</p>
             <p>{director}</p>
+            <button onClick={removeMovie}>X</button>
             <img src={poster}></img>
         </div>
     )
