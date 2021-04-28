@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import backendAPI from "../API/backendAPI"
 import { Redirect } from 'react-router-dom';
 import Watchlist from "./Watchlist"
+import "../styles/Watchlist.css"
 
 
 // displays current user profile
@@ -29,7 +30,7 @@ const Profile = () => {
           <img src={user.img_url}></img>
           <h1 className="display-3">Hello, {user.username}!</h1>
           <hr></hr>
-          <div>WATCHLIST FOLLOWS THIS {watchlist && watchlist.map(m => <Watchlist 
+          <div className="Watchlist-parent">{watchlist && watchlist.map(m => <Watchlist 
           imdb_id={m.imdb_id} 
           title={m.title} 
           poster={m.poster} 

@@ -38,10 +38,12 @@ const MovieDetail = () => {
 
     // Post OMDB data to backend database
     useEffect(function saveOMDBData() {
+        if (OMDBData) {
         async function addMovie() {
             dispatch(addToOMDBbackend(OMDBData));
         }
-        addMovie()
+        addMovie();
+        }
         }, [dispatch, OMDBData]);
 
 

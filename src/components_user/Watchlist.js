@@ -1,11 +1,12 @@
 import React from "react"
+import "../styles/Watchlist.css"
 
 
 const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating}) => {
 
 
     return (
-        <div key={imdb_id}>
+        <div className="Watchlist-div" key={imdb_id}>
             <h4>{title} [{imdb_id}]</h4>
             <h5>{bechdel_rating}</h5>
             <p>{plot}</p>

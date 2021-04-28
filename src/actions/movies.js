@@ -1,12 +1,9 @@
 // import axios from "axios";
 import {GET_BECH_MOVIE_BY_TITLE,
    GET_OMDB_MOVIE_DETAILS,
-  ADD_TO_OMDB, 
-NO_ADD} from "./types"
+  ADD_TO_OMDB} from "./types"
 import backendAPI from "../API/backendAPI"
 import getMovie from "../API/OMDB"
-
-const MOVIES = [];
 
 
 // ***
@@ -30,15 +27,11 @@ function getMoviesBechdel(movies) {
 // save that data to the backend database 
 export function addToOMDBbackend(data) {
   return async function (dispatch) {
-    const response = await backendAPI.addToOMDB(data);
-    if (MOVIES.includes(response.data.Title)) {
-      return "ERROR: Already added"
-    } 
-    else {
-      MOVIES.push(response.data.Title)      
-      return dispatch(addToDatabase(response.data));
-    }
+
+    const response = await backendAPI.addToOMDB(data);   
+    return dispatch(addToDatabase(response.data));
   };
+
 }
 
 function addToDatabase(movie) {
@@ -47,18 +40,6 @@ function addToDatabase(movie) {
       movie,
     };
 }
-
-
-
-// function doNotAdd(data) {
-//   return {
-//     type: NO_ADD,
-//     data,
-//   };
-// }
-
-
-
 
 
 // **
