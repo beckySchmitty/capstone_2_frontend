@@ -11,7 +11,7 @@ const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating, remo
             <p>{plot}</p>
             <p>{director}</p>
             <button onClick={removeMovie}>X</button>
-            <img src={poster}></img>
+            <img src={poster} alt={`Poster for ${title} movie`}></img>
         </div>
     )
 }

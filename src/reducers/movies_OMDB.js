@@ -1,7 +1,6 @@
 import {GET_OMDB_MOVIE_DETAILS,
   ADD_TO_OMDB, 
   RESET_ALL, 
-NO_ADD,
 LOAD_ERROR} from "../actions/types"
 
 const INITIAL_STATE = [];

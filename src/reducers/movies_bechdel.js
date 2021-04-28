@@ -11,6 +11,9 @@ export default function rootReducer(state = INITIAL_STATE, action) {
         return [...INITIAL_STATE ];
   
       case GET_BECH_MOVIE_BY_TITLE:
+        if (action.movies.ERROR) {
+          return [...action.movies.ERROR]
+        }
         return [ ...state, ...action.movies ];
   
       default:

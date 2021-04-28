@@ -34,7 +34,7 @@ const MovieDetail = () => {
         dispatch(getMovieFromOMDB(imdb_id, BechdelData.rating));
       }
       getMovieDeets()
-    }, [dispatch, imdb_id]);
+    }, [dispatch, imdb_id, BechdelData.rating]);
 
     // Post OMDB data to backend database
     useEffect(function saveOMDBData() {
@@ -49,7 +49,7 @@ const MovieDetail = () => {
 
     // put inside useEffect
     async function addToWatchlist() {
-        const response = await backendAPI.addToWatchlist(imdb_id, currentUser.id);
+        const response = await backendAPI.addToWatchlist(OMDBData.imdbID, currentUser.id);
         setAdded(true)
         console.log(`ADDED: ${JSON.stringify(response.data)}`)
     }

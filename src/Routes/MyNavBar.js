@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import "../styles/NavBar.css"
 
 const MyNavBar = () => {
@@ -25,6 +25,8 @@ return (
 }
 
 export default MyNavBar;
+
+// add Dropdown back to import
 
 {/* <NavDropdown style={{color: '#888888'}} title="Account" id="basic-nav-dropdown">
 <NavDropdown.Item style={{color: '#888888'}} href="/profile">Profile</NavDropdown.Item>

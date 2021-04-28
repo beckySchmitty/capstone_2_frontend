@@ -5,6 +5,7 @@ import "../styles/Search.css"
 import { useSelector, useDispatch } from "react-redux";
 import {getMoviesFromBechdel } from "../actions/movies"
 import { RESET_ALL } from "../actions/types";
+import NoMovieFound from "./NoMovieFound"
 
 const SearchPage = () => {
     const [term, setTerm] = useState(null);
@@ -44,9 +45,15 @@ const SearchPage = () => {
       />)
     );
 
+    if (movies[0] && movies[0].ERROR) {
+      return <NoMovieFound search={search} term={movies[0].ERROR}/>
+    }
+
+
+
     return (
       <div>
-        <h1>Search for a movie:</h1>
+        <h1>Search by title:</h1>
         <SearchForm search={search} />
 
         <div className="Search-flex-container">
