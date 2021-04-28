@@ -26,7 +26,6 @@ function Homepage() {
         <div className="Home-flex-item"><h1>2</h1> <h5>Who talk to eachother</h5></div>
         <div className="Home-flex-item"><h1>3</h1> <h5>About something besies a man</h5></div>
     </div>
-
           <Button outline color="danger" onClick={toSearchPage}>SEARCH</Button>{' '}
       </div>
       

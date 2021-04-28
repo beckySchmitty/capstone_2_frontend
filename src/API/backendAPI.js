@@ -89,9 +89,6 @@ class backendAPI {
     }
 
 
-
-
-
   // POST User login - get token from username, password
   static async login(data) {
     let res = await this.request(`user/login`, data, "post");

@@ -62,15 +62,3 @@ const SearchPage = () => {
   };
 
 export default SearchPage;
-
-
-    // Get bechdel movie data from Bechdel API
-    // useEffect(function loadMovieWithSearch() {
-    //   if (term) {
-    //   async function getMovie() {
-    //     dispatch(getMovieFromBechdel(term));
-    //   }
-    //   getMovie()
-    //   setDoneLoading(true)
-    // }
-    // }, [dispatch, term]);

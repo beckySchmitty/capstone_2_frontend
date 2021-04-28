@@ -5,18 +5,17 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import backendAPI from "../API/backendAPI"
 
-
 // displays details for a single movie 
-
 
 const MovieDetail = () => {
     // const history = useHistory();
     const {imdb_id} = useParams();
     const dispatch = useDispatch();
     const movies = useSelector(st => st.movies);
-    const OMDBData = useSelector(st => st.OMDB);
+    const OMDBData = useSelector(st => st.OMDB[0]);
     const currentUser = useSelector(st => st.currentUser)
 
+    const [added, setAdded] = useState(false)
     const BechdelData = {}
 
     // find bechdel data in redux store by imdb_id
@@ -40,7 +39,7 @@ const MovieDetail = () => {
     // Post OMDB data to backend database
     useEffect(function saveOMDBData() {
         async function addMovie() {
-            dispatch(addToOMDBbackend(OMDBData[0]));
+            dispatch(addToOMDBbackend(OMDBData));
         }
         addMovie()
         }, [dispatch, OMDBData]);
@@ -49,29 +48,34 @@ const MovieDetail = () => {
     // put inside useEffect
     async function addToWatchlist() {
         const response = await backendAPI.addToWatchlist(imdb_id, currentUser.id);
+        setAdded(true)
         console.log(`ADDED: ${JSON.stringify(response.data)}`)
     }
             
-
-
     return (
             <div>
-                {OMDBData[0] ? <div><div style={{display: `inline-block`, verticalAlign: `middle`}}>
-                                <img alt="#" style={{width: `300px`, height: `auto`, display: `inline-block`}} 
-                                src={OMDBData[0].Poster}>
-                                </img>
-                            </div>
-                            <div style={{display: `inline-block`, verticalAlign: `middle`, alignContent: `left`}} >
-                                <h2>{OMDBData[0].Title} ({OMDBData[0].Year})</h2>
-                                <h2>Bechdel Rating: {BechdelData.rating}</h2>
-                                <h4>{OMDBData[0].Director}</h4>
-                                <p>{OMDBData[0].Plot}</p>
-                                <p>IMDB_ID: {imdb_id}</p>
-                            </div>
-                            {currentUser && <div><button onClick={addToWatchlist}>Add to watchlist</button></div>}
-                            </div>
+                {OMDBData ? <div>
+                    <div style={{display: `inline-block`, verticalAlign: `middle`}}>
+                    <img alt="#" 
+                    style={{width: `300px`, height: `auto`, display: `inline-block`}} 
+                    src={OMDBData.Poster}>
+                    </img>
+                    </div>
+                    <div style={{display: `inline-block`, verticalAlign: `middle`, alignContent: `left`}} >
+                        <h2>{OMDBData.Title} ({OMDBData.Year})</h2>
+                        <h2>Bechdel Rating: {BechdelData.rating}</h2>
+                        <h4>{OMDBData.Director}</h4>
+                        <p>{OMDBData.Plot}</p>
+                        <p>IMDB_ID: {imdb_id}</p>
+                    </div>
+                        {currentUser.id &&
+                        <div><button 
+                        onClick={addToWatchlist} 
+                        disabled={added}>
+                            {added? "Added": "Add to Watchlist"}
+                        </button></div>}
+                        </div>
                             : <div>not done loading</div>}
-
             </div>
     )
 }
@@ -79,12 +83,3 @@ const MovieDetail = () => {
 export default MovieDetail;
 
 
-// old note from deleted page
-    // find OMDB data redux store by imdb_id
-    // for (let i=0; i< OMDBData.length; i++) {
-    //     if (OMDBData[i].imdbID === `tt${imdb_id}` || `tt0${imdb_id}`) {
-    //         for (let [k,v] of Object.entries(OMDBData[i])) {
-    //           movieData[k] = v;
-    //         }
-    //     }
-    // }

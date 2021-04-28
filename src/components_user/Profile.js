@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
-import { Jumbotron, Button } from 'reactstrap';
 import {useSelector} from "react-redux";
 import backendAPI from "../API/backendAPI"
+import { Redirect } from 'react-router-dom';
+import Watchlist from "./Watchlist"
 
 
 // displays current user profile
@@ -13,24 +14,30 @@ const Profile = () => {
     useEffect(function getWatchlist() {
       async function getData() {
         const resp = await backendAPI.getWatchlist(user.id)
-        setWatchlist(JSON.stringify(resp.data.rows))
+        setWatchlist(resp.data.rows)
       }
       getData()
       }, [user]);
 
+      if (!user.id) {
+        return <Redirect to="/login" />;
+      }
+
     
     return (
         <div>
-        <Jumbotron>
+          <img src={user.img_url}></img>
           <h1 className="display-3">Hello, {user.username}!</h1>
-          <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr className="my-2" />
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <p className="lead">
-            <Button color="primary">Learn More</Button>
-          </p>
-        </Jumbotron>
-        <div>WATCHLIST {watchlist} HERE</div>
+          <hr></hr>
+          <div>WATCHLIST FOLLOWS THIS {watchlist && watchlist.map(m => <Watchlist 
+          imdb_id={m.imdb_id} 
+          title={m.title} 
+          poster={m.poster} 
+          plot={m.plot} 
+          director={m.director}
+          bechdel_rating={m.bechdel_rating} 
+          />)}</div>
+
       </div>
     );
 }
