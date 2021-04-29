@@ -52,7 +52,7 @@ const SearchPage = () => {
 
 
     return (
-      <div>
+      <div className="Search-container">
         <h1>Search by title:</h1>
         <SearchForm search={search} />
 
@@ -62,7 +62,6 @@ const SearchPage = () => {
         </div>
 
         <div>
-          <hr></hr>
         </div>
       </div>
     );
