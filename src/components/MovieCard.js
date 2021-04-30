@@ -13,14 +13,12 @@ const MovieCard = ({id, yr, imdb_id, title, rating}) => {
       }
 
     return (
-        <div className="MovieCard-flex-item" key={id}>
-          <Card body>
+          <Card className="MovieCard-flex-item" key={id} body>
             <CardTitle tag="h4">{title} ({yr})</CardTitle>
-            <CardText>Bechdel Rating:{rating}</CardText>
+            <CardText className="CardText">Bechdel Rating:{rating}</CardText>
             {/* <p>{imdb_id}</p> */}
-            <Button outline color="info" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
+            <Button className="primary" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
           </Card>
-        </div>
     )
 }
 

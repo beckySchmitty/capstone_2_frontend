@@ -1,5 +1,5 @@
 .Search-container {
-  background: linear-gradient(10deg, #355C7D, #6C5B7B, #C06C84);
+  /* background: linear-gradient(10deg, #355C7D, #6C5B7B, #C06C84); */
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -25,12 +25,32 @@
     color: white;
     font-weight: bold;
     text-align: center;
+    border: 2px solid #94545c;
   }
-
 
   h4 {
-    color: white;
+    color: #94545c;
   }
+
+  .CardText {
+    color: #343a5c;
+  }
+
+  .primary {
+    background-color: white;
+    color:#94545c;
+  }
+
+  .primary:hover {
+    background-color: #343a5c;
+  }
+
+ 
   
+  .OMDBError {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
 
 

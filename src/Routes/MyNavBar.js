@@ -5,7 +5,6 @@ import "../styles/NavBar.css"
 const MyNavBar = () => {
 
 return (
-    <div>
 <Navbar className="NavBar">
   <Navbar.Brand style={{color: '#888888'}} href="/">Bechdel Movie Ratings</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,7 +18,6 @@ return (
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-</div>
 )
 
 }

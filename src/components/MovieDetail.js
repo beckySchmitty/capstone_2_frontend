@@ -3,7 +3,8 @@ import {useDispatch} from "react-redux";
 import {getMovieFromOMDB, addToOMDBbackend} from "../actions/movies"
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import backendAPI from "../API/backendAPI"
+import backendAPI from "../API/backendAPI";
+import OMDBError from "./OMDBError";
 
 // displays details for a single movie 
 
@@ -53,6 +54,10 @@ const MovieDetail = () => {
         setAdded(true)
         console.log(`ADDED: ${JSON.stringify(response.data)}`)
     }
+
+    if (OMDBData && OMDBData.Response === "False") {
+        return <OMDBError title={BechdelData.title} rating={BechdelData.rating}/>
+    }
             
     return (
             <div>
@@ -78,6 +83,7 @@ const MovieDetail = () => {
                         </button></div>}
                         </div>
                             : <div>not done loading</div>}
+                            <button>Back to search</button>
             </div>
     )
 }
