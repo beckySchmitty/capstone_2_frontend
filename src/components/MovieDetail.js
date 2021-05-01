@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import backendAPI from "../API/backendAPI";
 import OMDBError from "./OMDBError";
+import MovieDetailCard from "./MovieDetailCard"
+import {Spinner} from "reactstrap";
+import "../styles/MovieDetail.css"
 
 // displays details for a single movie 
 
@@ -61,29 +64,19 @@ const MovieDetail = () => {
             
     return (
             <div>
-                {OMDBData ? <div>
-                    <div style={{display: `inline-block`, verticalAlign: `middle`}}>
-                    <img alt="#" 
-                    style={{width: `300px`, height: `auto`, display: `inline-block`}} 
-                    src={OMDBData.Poster}>
-                    </img>
-                    </div>
-                    <div style={{display: `inline-block`, verticalAlign: `middle`, alignContent: `left`}} >
-                        <h2>{OMDBData.Title} ({OMDBData.Year})</h2>
-                        <h2>Bechdel Rating: {BechdelData.rating}</h2>
-                        <h4>{OMDBData.Director}</h4>
-                        <p>{OMDBData.Plot}</p>
-                        <p>IMDB_ID: {imdb_id}</p>
-                    </div>
-                        {currentUser.id &&
-                        <div><button 
-                        onClick={addToWatchlist} 
-                        disabled={added}>
-                            {added? "Added": "Add to Watchlist"}
-                        </button></div>}
-                        </div>
-                            : <div>not done loading</div>}
-                            <button>Back to search</button>
+                {OMDBData ? 
+                <MovieDetailCard 
+                src={OMDBData.Poster}
+                title={OMDBData.Title}
+                year={OMDBData.Year}
+                b_rating={BechdelData.rating} 
+                director={OMDBData.Director}
+                plot={OMDBData.Plot}
+                imdb_id={imdb_id}
+                addToWatchlist={addToWatchlist}
+                added={added}/>
+                : <Spinner style={{ width: '3rem', height: '3rem' }} type="grow" />
+            }
             </div>
     )
 }

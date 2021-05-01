@@ -29,7 +29,7 @@ const Routes = ({login, signup}) => {
             <MovieDetail />
           </Route>
 
-          <Route exact path="/profile">
+          <Route exact path="/watchlist">
             <Profile />
           </Route>
 

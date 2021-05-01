@@ -1,0 +1,48 @@
+
+
+.DetailCard-container {
+    width: 100%;
+    height: 100vh; 
+}
+
+.DetailCard {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0 auto;
+    padding-top: 40px;;
+}
+
+.DetailCard-div {
+    border-radius: 15px;
+    background: linear-gradient(75deg,  #21CBF3, #2196F3); 
+    height: auto;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+}
+
+
+.DetailCard-text {
+    display: inline-block;
+    vertical-align: middle;
+    align-content: left;
+
+}
+
+img {
+    width: auto;
+    height: 500px;
+    display: inline-block;
+}
+
+.DetailCard-h {
+    color: #2196F3;
+}
+
+Button {
+    margin: 10px; 
+}

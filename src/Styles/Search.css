@@ -8,43 +8,85 @@
 
   .Search-flex-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
     /* list-style: none; */
   }
   
   .MovieCard-flex-item {
+    overflow: hidden;
+    flex-grow: 1;
+    border-radius: 15px;
     padding: 5px;
     width: 250px;
-    height: 200px;
+    height: 300px;
     margin: 10px;
     line-height: 50px;
     color: white;
     font-weight: bold;
     text-align: center;
-    border: 2px solid #94545c;
+    border: 6px solid #F07037;
+    animation: transform 0.1s ease-in-out, box-shadow 0.1s;
+  }
+
+  .MovieCard-flex-item:hover {
+    transform: translateY(-0.5rem) scale(1.0125);
+    box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
   }
 
   h4 {
-    color: #94545c;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .Search-container h1 {
+    color: #AF1281;
   }
 
   .CardText {
-    color: #343a5c;
+    color: #AF1281;
+    font-weight: bolder;
+    margin-top: 20px;
   }
 
-  .primary {
+  .CardTitle-div {
+    border-radius: 15px;
+    background: linear-gradient(10deg, #FF6D92, #FE7167, #F07037);
+    height: 90px;
+    text-align: center;
+  }
+
+
+
+  /* *****************************************BUTTON */
+  .MovieCard-btn {
     background-color: white;
-    color:#94545c;
+    outline: none;
+    border: none;
   }
 
-  .primary:hover {
-    background-color: #343a5c;
+  .faPlus {
+    color: #FE7167;
+    margin-top: 20px;;
   }
 
+  @keyframes circle-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    
+    to {
+      transform: rotate(180deg);
+    }
+  }
+
+  .faPlus:hover {
+    animation: circle-rotate .75s both linear;
+  }
  
   
   .OMDBError {

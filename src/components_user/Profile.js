@@ -45,6 +45,7 @@ const Profile = () => {
               director={m.director}
               bechdel_rating={m.bechdel_rating} 
               removeMovie={() => removeMovie(user.id, m.imdb_id)}
+              key={m.imdb_id}
               />)}</div>
 
               </div> 

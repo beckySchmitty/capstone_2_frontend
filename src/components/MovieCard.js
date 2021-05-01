@@ -1,6 +1,9 @@
 import React from "react"
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -14,10 +17,13 @@ const MovieCard = ({id, yr, imdb_id, title, rating}) => {
 
     return (
           <Card className="MovieCard-flex-item" key={id} body>
-            <CardTitle tag="h4">{title} ({yr})</CardTitle>
-            <CardText className="CardText">Bechdel Rating:{rating}</CardText>
-            {/* <p>{imdb_id}</p> */}
-            <Button className="primary" onClick={()=> toMovieDetails(imdb_id)}>More</Button>{' '}
+            <div className="CardTitle-div"><h4>{title} ({yr})</h4></div>
+            <CardText className="CardText" tag="h5">Bechdel Rating: {rating}</CardText>
+            <button 
+              onClick={()=> toMovieDetails(imdb_id)} 
+              className="MovieCard-btn">
+                <FontAwesomeIcon icon={faPlus} size='5x' className="faPlus" />
+            </button>
           </Card>
     )
 }
