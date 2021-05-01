@@ -26,7 +26,7 @@ function LoginForm({ login }) {
     if (resp.success) {
       history.push("/search");
     } else {
-      setErrors(resp.errors);
+      setErrors(resp.errors[0].data.error.message);
     }
   }
 
@@ -65,7 +65,7 @@ function LoginForm({ login }) {
         </FormGroup>
         </Col>
         {errors.length
-            ? <AlertMsg type="danger" messages={errors} />
+            ? <AlertMsg type="danger" error={errors} />
             : null}
 
         <Button onSubmit={handleSubmit}>Submit</Button>

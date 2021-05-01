@@ -2,12 +2,12 @@ import React from "react";
 
 // Alert Msg
 
-function AlertMsg({ type = "danger", messages = [] }) {
+function AlertMsg({ type = "danger", error }) {
 
   return (
       <div className={`alert alert-${type}`} role="alert">
-        <h1>{JSON.stringify(messages)}</h1>
-      </div>
+        <p>{error}</p>      
+        </div>
   );
 }
 

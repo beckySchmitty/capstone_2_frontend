@@ -37,27 +37,29 @@
     box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
   }
 
-  h4 {
+  /* h4 {
     color: white;
     text-align: center;
     vertical-align: center;
-  }
+  } */
 
   .Search-container h1 {
-    color: #AF1281;
+    /* color: #AF1281; */
+    color: #444;
   }
 
   .CardText {
-    color: #AF1281;
+    color: #FE7167;
     font-weight: bolder;
     margin-top: 20px;
   }
 
-  .CardTitle-div {
+  .CardTitle-div h4 {
     border-radius: 15px;
     background: linear-gradient(10deg, #FF6D92, #FE7167, #F07037);
     height: 90px;
     text-align: center;
+    color: white;
   }
 
 

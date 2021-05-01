@@ -23,7 +23,7 @@ const SearchForm = ({ search }) => {
           <Label for="search"></Label>
           <InputGroupAddon addonType="prepend">
             <Button>SEARCH</Button>
-          <Input type="text" value={term} onChange={handleChange} id="search" />
+            <Input type="text" value={term} onChange={handleChange} id="search" />
           </InputGroupAddon>
         </FormGroup>
     </Form>

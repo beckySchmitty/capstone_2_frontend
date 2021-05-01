@@ -12,6 +12,7 @@ return (
     <Nav>
       <Nav.Link href="/search">Search</Nav.Link>
       <NavDropdown className="ml-auto" title="Account" id="basic-nav-dropdown">
+      <NavDropdown.Item href="/signup">Signup</NavDropdown.Item>
       <NavDropdown.Item href="/watchlist">Watchlist</NavDropdown.Item>
       <NavDropdown.Item href="/login">Login</NavDropdown.Item>
       <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>

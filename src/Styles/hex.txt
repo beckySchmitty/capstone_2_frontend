@@ -1,9 +1,0 @@
-#1c1e46     Dark Blue 1
-#343a5c     Dark Blue 2
-#d0736a     Light Pink
-#94545c     Dark Pinkish
-#755465     Dark Maroon
-#cbc7cf     Off White
-#84859b     Gray 1 (lighest)
-#73738c     Gray 2
-#4d4e6d     Gray Blue

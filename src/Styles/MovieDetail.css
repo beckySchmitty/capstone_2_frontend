@@ -33,14 +33,14 @@
 
 }
 
-img {
+.DetailCard-img {
     width: auto;
     height: 500px;
     display: inline-block;
 }
 
 .DetailCard-h {
-    color: #2196F3;
+    color: #444;
 }
 
 Button {

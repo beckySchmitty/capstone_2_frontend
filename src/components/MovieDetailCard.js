@@ -16,16 +16,17 @@ const MovieDetailCard = ({src, title, year, b_rating, director, plot, imdb_id, a
     return (
         
             <div className="DetailCard-container">
-                <div className="DetailCard">
-                    <img alt={title}  
+                <div className="DetailCard" id={imdb_id}>
+                    <img 
+                    className="DetailCard-img"
+                    alt={title}  
                     src={src}>
                     </img>
                     <div className="DetailCard-text" >
                         <div className="DetailCard-div"><h2>{title} ({year})</h2></div>
                         <h2 className="DetailCard-h">Bechdel Rating: {b_rating}</h2>
                         <h4 className="DetailCard-h">{director}</h4>
-                        <p>{plot}</p>
-                        <p>IMDB_ID: {imdb_id}</p>
+                        <p style={{textAlign: `left`, margin: `20px`}}>{plot}</p>
                         {currentUser.id &&
                         <div><Button 
                         outline
