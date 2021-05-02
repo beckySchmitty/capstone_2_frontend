@@ -6,6 +6,7 @@ import "../styles/Home.css";
 
 // Home page of site
 // Explains Bechdel test
+// Button leads to search page
 
 
 function Homepage() {

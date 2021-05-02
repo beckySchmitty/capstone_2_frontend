@@ -1,12 +1,13 @@
 import React from "react";
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-  } from 'reactstrap';
-  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {Card, CardText, CardBody,CardTitle, CardSubtitle} from 'reactstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import "../styles/Watchlist.css";
 
+/**
+ * 
+ * @returns Component which renders individual cards for each movie on the user's watchlist
+ */
 
 const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating, removeMovie}) => {
 

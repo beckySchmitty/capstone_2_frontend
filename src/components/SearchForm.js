@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, InputGroupAddon } from 'reactstrap';
 
+// Search form for movies
+// Searched by title 
+// Query uses ILIKE so 
+// MovieCards rendered after search will display any movie with the search term in title
 
 const SearchForm = ({ search }) => {
   const [term, setTerm] = useState("");

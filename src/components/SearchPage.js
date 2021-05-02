@@ -7,6 +7,8 @@ import {getMoviesFromBechdel } from "../actions/movies"
 import { RESET_ALL } from "../actions/types";
 import NoMovieFound from "./NoMovieFound"
 
+// Displays Search Form and MovieCards once search form is submitted
+
 const SearchPage = () => {
     const [term, setTerm] = useState(null);
     const movies = useSelector(st => st.movies);

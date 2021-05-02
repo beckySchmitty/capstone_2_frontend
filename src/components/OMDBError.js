@@ -2,7 +2,7 @@ import React from "react";
 import { Alert } from 'reactstrap';
 import "../styles/Search.css"
 
-
+// Error comp for OMDB external API error
 
 const OMDBError = ({title, rating}) => {
 

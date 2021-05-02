@@ -1,7 +1,11 @@
 import {GET_BECH_MOVIE_BY_TITLE, RESET_ALL} from "../actions/types"
 
-const INITIAL_STATE = [];
+/**
+ * Reducer for calls to the Bechdel dataset (API on backend of this project)
+ */
 
+
+const INITIAL_STATE = [];
 
 export default function rootReducer(state = INITIAL_STATE, action) {
 

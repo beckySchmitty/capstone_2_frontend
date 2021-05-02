@@ -3,6 +3,13 @@ import {GET_OMDB_MOVIE_DETAILS,
   RESET_ALL, 
 LOAD_ERROR} from "../actions/types"
 
+
+/**
+ * Reducer for calls to the OMDB dataset which is
+ * an external API providing additional movie data based on the imdb_id
+ */
+
+
 const INITIAL_STATE = [];
 
 export default function rootReducer(state = INITIAL_STATE, action) {

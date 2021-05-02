@@ -1,5 +1,10 @@
 import {SET_CURR_USER, LOGOUT_CURR_USER} from "../actions/types"
 
+/**
+ * Reducer for current user
+ */
+
+
 const INITIAL_STATE = {}
 
 export default function rootReducer(state = INITIAL_STATE, action) {

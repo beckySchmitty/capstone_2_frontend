@@ -9,7 +9,8 @@ import MovieDetailCard from "./MovieDetailCard"
 import {Spinner} from "reactstrap";
 import "../styles/MovieDetail.css"
 
-// displays details for a single movie 
+// displays MovieDetailCard for a single movie 
+// OR spinner if still loading
 
 const MovieDetail = () => {
     // const history = useHistory();
@@ -40,7 +41,7 @@ const MovieDetail = () => {
       getMovieDeets()
     }, [dispatch, imdb_id, BechdelData.rating]);
 
-    // Post OMDB data to backend database
+    // Post OMDB data to database
     useEffect(function saveOMDBData() {
         if (OMDBData) {
         async function addMovie() {
@@ -50,14 +51,14 @@ const MovieDetail = () => {
         }
         }, [dispatch, OMDBData]);
 
-
-    // put inside useEffect
+    // add movie to user watchlist on click
     async function addToWatchlist() {
         const response = await backendAPI.addToWatchlist(OMDBData.imdbID, currentUser.id);
         setAdded(true)
         console.log(`ADDED: ${JSON.stringify(response.data)}`)
     }
 
+    // Display Error component if external OMDB API responds with error
     if (OMDBData && OMDBData.Response === "False") {
         return <OMDBError title={BechdelData.title} rating={BechdelData.rating}/>
     }

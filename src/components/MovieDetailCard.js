@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {Button} from "reactstrap";
 
-// 
+// Renders single movie data 
 
 const MovieDetailCard = ({src, title, year, b_rating, director, plot, imdb_id, addToWatchlist, added}) => {
   let history = useHistory();

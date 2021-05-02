@@ -6,7 +6,7 @@ import Watchlist from "./Watchlist"
 import "../styles/Watchlist.css"
 
 
-// displays current user profile
+// displays current user profile and Watchlist Component
 
 const Profile = () => {
     const user = useSelector(st => st.currentUser);
@@ -30,7 +30,6 @@ const Profile = () => {
     }
     
     return (
-
           <div>
               <div>
               <img alt="owl" style={{width: `200px`}} src='https://images.unsplash.com/photo-1500373994708-4d781bd7bd15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'></img>
@@ -48,7 +47,6 @@ const Profile = () => {
 
               </div> 
           </div>
-
     );
 }
 

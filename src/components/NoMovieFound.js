@@ -1,6 +1,8 @@
 import React from "react"
 import SearchForm from "./SearchForm"
 
+// Displays search term in an styled error component 
+// if the movie was not found in the bechdel data set
 
 const NoMovieFound = ({search, term}) => {
 

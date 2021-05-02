@@ -2,11 +2,13 @@ import React,  {useEffect} from "react"
 import {useDispatch} from "react-redux";
 import { LOGOUT_CURR_USER } from "../actions/types";
 
+/**
+ * Logs out current user
+ * @returns logout page
+ */
 
 const LogoutPage = () => {
-    // const history = useHistory();
     const dispatch = useDispatch();
-
 
     useEffect(function LogoutUser() {
       async function logout() {

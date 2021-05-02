@@ -10,7 +10,10 @@ import LogoutPage from "../components_user/LogoutPage";
 import Profile from "../components_user/Profile"
 
 
-// Site Wide Frontend Routes
+/**
+ *  
+ * @returns React Router for entire site
+ */
 
 const Routes = ({login, signup}) => {
 
