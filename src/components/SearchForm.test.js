@@ -1,16 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Home from "./Home";
+import SearchForm from "./SearchForm";
 
 // smoke test
 it("renders without crashing", function() {
-    render(<Home />);
+    render(<SearchForm />);
   });
   
 
 // snapshot test
 it("matches snapshot", function() {
-  const {asFragment} = render(<Home />);
+  const {asFragment} = render(<SearchForm />);
   expect(asFragment()).toMatchSnapshot();
 });
 

@@ -1,16 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Home from "./Home";
+import NoMovieFound from "./NoMovieFound";
 
 // smoke test
 it("renders without crashing", function() {
-    render(<Home />);
+    render(<NoMovieFound />);
   });
   
 
 // snapshot test
 it("matches snapshot", function() {
-  const {asFragment} = render(<Home />);
+  const {asFragment} = render(<NoMovieFound />);
   expect(asFragment()).toMatchSnapshot();
 });
 
