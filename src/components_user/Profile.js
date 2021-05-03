@@ -33,7 +33,7 @@ const Profile = () => {
           <div>
               <div>
               <img alt="owl" style={{width: `200px`}} src='https://images.unsplash.com/photo-1500373994708-4d781bd7bd15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'></img>
-              <h1 className="display-3">Hello, {user.username}!</h1>
+              <h1 className="display-3" style={{color: `black`}}>Hello, {user.username}!</h1>
               <div className="Watchlist-parent">{watchlist && watchlist.map(m => <Watchlist 
               imdb_id={m.imdb_id} 
               title={m.title} 

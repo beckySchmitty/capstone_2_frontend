@@ -13,7 +13,7 @@ const MyNavBar = () => {
   let NAV;
 
   if (user.id) { 
-  NAV = <Navbar bg="dark" expand="lg" className="navbar navbar-dark bg-dark">
+  NAV = <Navbar bg="light" expand="lg">
   <Navbar.Brand href="/">Bechdel Movie Ratings</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
@@ -27,7 +27,7 @@ const MyNavBar = () => {
   </Navbar.Collapse>
 </Navbar>
   } else {
-    NAV = <Navbar bg="dark" expand="lg" className="navbar navbar-dark bg-dark">
+    NAV = <Navbar bg="light" expand="lg">
     <Navbar.Brand href="/">Bechdel Movie Ratings</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -50,3 +50,6 @@ return (
 }
 
 export default MyNavBar;
+
+
+// className="navbar navbar-dark bg-dark"
