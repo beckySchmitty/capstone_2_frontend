@@ -43,8 +43,8 @@ function Homepage() {
             <h1 className= "Home-h1">Does your favorite movie pass the Bechdel test?</h1>
             <div className="Home-flex-container">
               <div className="Home-flex-item"><h1>1</h1> <h4>It has at least two women</h4></div>
-              <div className="Home-flex-item"><h1>2</h1> <h4>Who talk to eachother</h4></div>
-              <div className="Home-flex-item"><h1>3</h1> <h4>About something besies a man</h4></div>
+              <div className="Home-flex-item"><h1>2</h1> <h4>Who talk to each other</h4></div>
+              <div className="Home-flex-item"><h1>3</h1> <h4>About something besides a man</h4></div>
             </div>
             <div className="Home-search-btn">
             <Button color="danger" onClick={toSearchPage}>SEARCH</Button>{' '}
