@@ -47,7 +47,7 @@ class backendAPI {
    static async addToOMDB(data) {
     let res = await axios({
       method: 'post',
-      url: 'http://localhost:3001/omdb/add',
+      url: `${BASE_URL}/omdb/add`,
       data, 
       headers: {
           'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ class backendAPI {
       let data = {imdb_id, user_id}
       let res = await axios({
         method: 'post',
-        url: 'http://localhost:3001/omdb/add/watchlist',
+        url: `${BASE_URL}/omdb/add/watchlist`,
         data, 
         headers: {
             'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ class backendAPI {
       let data = {user_id, imdb_id}
       let res = await axios({
         method: 'post',
-        url: 'http://localhost:3001/omdb/remove/watchlist',
+        url: `${BASE_URL}/omdb/remove/watchlist`,
         data, 
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ class backendAPI {
       let data = {user_id}
       let res = await axios({
         method: 'post',
-        url: 'http://localhost:3001/user/watchlist',
+        url: `${BASE_URL}/user/watchlist`,
         data, 
         headers: {
             'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ class backendAPI {
   static async signup(data) {
     let res = await axios({
       method: 'post',
-      url: 'http://localhost:3001/user/register',
+      url: `${BASE_URL}/user/register`,
       data, 
       headers: {
           'Content-Type': 'application/json'
