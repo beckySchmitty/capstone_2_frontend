@@ -5,7 +5,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import "../styles/Watchlist.css";
 
 /**
- * 
  * @returns Component which renders individual cards for each movie on the user's watchlist
  */
 
