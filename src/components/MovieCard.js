@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardText } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from '@fortawesome/free-solid-svg-icons'

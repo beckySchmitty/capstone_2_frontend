@@ -59,12 +59,11 @@ function Homepage() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography className={classes.heading}>Bechdel Test Resources</Typography>
+                    <Typography className={classes.heading}>Bechdel Test Overview</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                      sit amet blandit leo lobortis eget.
+                      Born from Alison Bechdel's 1985 comic strip, the Bechdel Test highlights how male dominated cinema is and helps calculate this statistic across decades. <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">Read more</a>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -74,12 +73,11 @@ function Homepage() {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography className={classes.heading}>Details about the movie data</Typography>
+                    <Typography className={classes.heading}>Additional Data Source</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                      sit amet blandit leo lobortis eget.
+                      A special thank you to the <a href="http://www.omdbapi.com/">OMDb API</a> for supplying the movie posters and additional movie data used on this site.
                     </Typography>
                   </AccordionDetails>
                 </Accordion>

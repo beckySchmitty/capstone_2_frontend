@@ -1,7 +1,6 @@
 // calls to OMDB API
 
 import axios from "axios";
-// const dotenv = require('dotenv').config()
 
 
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY

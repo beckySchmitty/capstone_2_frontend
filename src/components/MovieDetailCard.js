@@ -13,6 +13,10 @@ const MovieDetailCard = ({src, title, year, b_rating, director, plot, imdb_id, a
         history.push(`/search`);
       }
 
+      const toLogin = () => {
+        history.push(`/login`);
+      }
+
     return (
         
             <div className="DetailCard-container">
@@ -39,6 +43,10 @@ const MovieDetailCard = ({src, title, year, b_rating, director, plot, imdb_id, a
                         outline
                         color="secondary"
                         onClick={toSearch}>Search</Button>
+                        {!currentUser.id && <Button 
+                        outline
+                        color="secondary"
+                        onClick={toLogin}>Login + Add to watchlist</Button>}
                         </div>
 
                 </div>

@@ -15,6 +15,10 @@ function LoginForm({ login }) {
     password: "",
   });
 
+  const toSignup = () => {
+    history.push(`/signup`);
+  }
+
   const [errors, setErrors] = useState([]);
 
 
@@ -70,6 +74,7 @@ function LoginForm({ login }) {
 
         <Button onSubmit={handleSubmit}>Submit</Button>
       </Form>
+      <Col>Don't have an account? <Button outline onClick={toSignup}>Signup</Button></Col>
     </Container>
   );
 }

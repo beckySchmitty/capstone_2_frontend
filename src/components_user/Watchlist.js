@@ -13,11 +13,11 @@ const Watchlist = ({imdb_id, title, poster, plot, director, bechdel_rating, remo
 
     return (
         <div className="Watchlist-div" id={imdb_id}>
-            <Card style={{width: `300px`, height: `990px`, border: `5px solid black`}}>
-               <img top width="100%" src={poster} alt={title} />
+            <Card style={{width: `300px`, height: `auto`, border: `5px solid black`, alignItems: `center`}}>
+               <img top src={poster} alt={title} />
                 <CardBody>
                 <CardTitle tag="h2">{title}</CardTitle>
-                <CardTitle tag="h4">Bechdel Rating: {bechdel_rating}</CardTitle>
+                <CardTitle tag="h4" style={{color: `black`}}>Bechdel Rating: {bechdel_rating}</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted"><em>{director}</em></CardSubtitle>
                 <CardText style={{textAlign: `left`}}>{plot}</CardText>
                 <button 
